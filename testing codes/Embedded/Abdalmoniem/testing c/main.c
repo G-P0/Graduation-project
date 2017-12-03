@@ -1,7 +1,10 @@
 #include <stdio.h>
 
- main ()
-{
-	printf("hello,world! ");
+main() {
+	int x;
+	while (21) {
+		x = getchar();
+		putchar(x);
 
+	}
 }

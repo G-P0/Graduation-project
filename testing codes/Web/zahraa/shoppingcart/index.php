@@ -1,7 +1,7 @@
 
 <?php 
 session_start();
-$connect= mysqli_connect("localhost","root","root","shoppingcartdb");
+$connect= mysqli_connect("localhost","root","","shoppingcartdb");
 if(isset($_POST["add_to_cart"]))
 {
 	if(isset($_SESSION["shopping cart"]))

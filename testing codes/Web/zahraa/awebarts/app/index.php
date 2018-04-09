@@ -1,12 +1,20 @@
+<?php
+    session_start();
+    if (! isset($_SESSION['username'])) 
+    {
+        include_once 'controllers/loginController.php';
+        die();
+     } 
+     //session_destroy();
+?>
 <!DOCTYPE html>
 <html>
-    
     <head>
         <meta charset="utf-8">
         <title>awebarts</title>
         <link rel="stylesheet" href="resources/css/bootstrap.css">
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-        <link rel="stylesheet" href="resources/css/style.css">
+        <link rel="stylesheet" href="resources/css/mystyle.css">
         <script src="resources/js/bootstrap.js"></script>
         <script src="resources/js/bootstrap.min.js"></script>
     </head>
@@ -14,7 +22,12 @@
         <div class="container">
         <header>
             <img src="resources/images/logo.png" alt="logo" />
-            <h2>Welcome Admin</h2>
+            <h2>Welcome 
+                <?php 
+                    if (isset($_SESSION['username'])) 
+                        echo $_SESSION['username']." <a href='?page=logout'>Logout</a>";
+                ?>
+            </h2>
         </header>
         <div class="clear"></div>
         <div class="content">

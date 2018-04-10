@@ -1,0 +1,119 @@
+html 
+{
+    background-color: #333;
+}
+
+header 
+{
+    padding: 20px;
+}
+
+header img 
+{
+    width: 20%;
+}
+
+header h2 
+{
+    float: right;
+    font-family: cursive;
+    font-size: 17px;
+    padding-top: 40px;
+}
+
+.clear 
+{
+    width: 100%;
+    height: 0;
+    clear: both;
+}
+
+.content 
+{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 350px;
+}
+
+aside 
+{
+    width: 20%;
+    float: left;
+    min-height: 250px;
+    margin-right: 20px
+}
+
+aside a 
+{
+    display: block;
+    margin: 5px;
+}
+
+.btn-danger 
+{
+    padding: 7px 15px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.btn-danger:hover 
+{
+    text-decoration: none;
+}
+
+footer 
+{
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 50px;
+}
+
+footer p 
+{
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+/* login.php styling */
+
+.logcon 
+{
+    width: 850px;
+    margin: 30px auto;
+    min-height: 400px;
+}
+
+.register 
+{
+    width: 40%;
+    float: left;
+}
+
+.login 
+{
+    width: 35%;
+    float: right;
+}
+
+.register h1, .login h1 
+{
+    font-family: verdana;
+    font-size: 25px; 
+}
+
+.register input[type='text'], .login input[type='text'],
+.register input[type='email'], .login input[type='email'],
+.register input[type='password'], .login input[type='password']
+{
+    display: block;
+    width: 250px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    font-size: 15px;
+}
+
+.register input[type='submit'], .login input[type='submit']
+{
+    margin-left: 10px; 
+}

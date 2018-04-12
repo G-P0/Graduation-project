@@ -1,0 +1,160 @@
+/*
+	Project :  Smart Home Sys;
+	Authors : Mohammed Ahmed El-Sofy 
+			  Hager Tarek Gado;
+*/
+
+/*--- Start Navigation Bar --- */
+
+
+.navbar ul li{
+	padding: 10px;
+}
+.navbar ul li a{
+
+}
+
+
+
+.navbar .sign{
+	padding-left: 5px
+}
+/*--- End Navigation Bar--- */
+
+/*Start Home*/
+/*End Home*/
+
+
+/*--- Start About Us --- */
+.aboutus{
+	background-color: #F8F9FA;
+	padding: 25px 0;
+}
+.aboutus div{
+	padding: 30px 20px;
+}
+/*--- End About Us--- */
+
+/*--- Start Services ---*/
+.services{
+	background-color: #eee;
+}
+.services .sentences div{
+	padding: 25px;
+}
+/*--- End Services --- */
+
+
+
+/*--- Start Why Choose Us --- */
+.chooseus img{
+	max-width: 100%;
+}
+.chooseus .col-6{
+	padding: 0px;
+}
+
+.chooseus .col-6:last-child{
+	background-color: #014C6E;
+	color: #fff;
+	padding: 40px 0;
+}
+.chooseus h2{
+	padding: 30px 30px
+}
+.chooseus p{
+	padding: 20px 30px
+}
+.chooseus .viewmore{
+	padding: 20px 30px;
+	font-style: upp
+}
+/*--- End Why Choose Us --- */
+
+
+/*--- Start Contact Us --- */
+.contactus div{
+	padding: 30px 50px;
+	background-color: #FAE2A1;
+	font-size: 30px;
+
+}
+
+.contactus h2{
+	font-weight: bold;
+}
+
+.contactus a{
+	padding: 20px 40px;
+}
+/*--- End Contact Us--- */
+
+/*--- Start Footer  --- */
+
+/*--- Start Footer ---*/
+footer{
+    background-color: #2B2D42;
+    height: 100px;
+}
+
+
+footer ul{
+    text-align: center;
+    margin-bottom: 40px
+}
+footer ul li{
+    display: inline-block;
+    width: 5%;
+    text-align: center;
+}
+footer ul li a{
+    font-size: 36px
+}
+/*facebook*/
+footer ul li a #facebook{
+   color: #EDF2F4;
+}
+footer ul li a #facebook:hover{
+   color: #3B5998;
+}
+/*Twitter*/
+footer ul li a #twitter{
+   color: #EDF2F4;
+}
+footer ul li a #twitter:hover{
+   color:#78C2F5
+}
+/*Linkedin*/
+footer ul li a #linkedin{
+   color: #EDF2F4;
+}
+footer ul li a #linkedin:hover{
+   color: #0274B3;
+}
+/*Googleplus*/
+footer ul li a #google{
+   color: #EDF2F4;
+}
+footer ul li a #google:hover{
+   color: #DD4B38;
+}
+/*Mail*/
+footer ul li a #mail{
+   color: #EDF2F4;
+}
+footer ul li a #mail:hover{
+   color: #7CB554;
+}
+
+footer .designer{
+    background-color: black;
+    color: #EDF2F4;
+    text-align: center;
+    height: 30px;
+}
+/*--- End Footer ---*/
+/*--- End Footer--- */
+
+
+
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2018 at 11:12 AM
+-- Generation Time: Apr 09, 2018 at 07:45 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -77,10 +77,24 @@ CREATE TABLE `sections` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `email` varchar(150) NOT NULL
+  `email` varchar(150) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`) VALUES
+(1, 'ali', 'ali', 'ali@blabla.com', '1234'),
+(2, 'omar', 'omar', 'omar@blabla.com', '567'),
+(3, 'admin', 'admin', 'ad@admin.com', 'abc'),
+(4, 'za', 'zaza', 'zxc@blabla.com', 'zxc'),
+(5, 'zazz', 'zazza', 'zzxxc@blabla.com', 'zxcxc'),
+(6, 'zahraa', 'zahraaa', 'zz@zza.com', '1234'),
+(9, 'mo2nes', 'mo2nes', 'm@m.com', '987');
 
 --
 -- Indexes for dumped tables
@@ -99,6 +113,12 @@ ALTER TABLE `sections`
   ADD PRIMARY KEY (`section_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -113,6 +133,12 @@ ALTER TABLE `pages`
 --
 ALTER TABLE `sections`
   MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

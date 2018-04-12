@@ -1,6 +1,7 @@
 <?php 
 	if (isset($_POST['submit'])) 
 	{
+		//Login
 		if (isset($_POST['submit']) && $_POST['submit'] == "Login") 
 		{
 			$username = $_POST['username'];
@@ -23,25 +24,14 @@
 				echo $e->getMessage();	
 			}
 		}
+
+		//Register
 		if (isset($_POST['submit']) && $_POST['submit'] == "Register")
 		{
-			$keys = array();
-			$values = array();
-			foreach ($_POST as $key => $value) 
-			{
-				
-				if ($key == 'submit') 
-					continue;
-				else
-				{
-					$keys[] = $key;
-					$values[] = $value;
-				}
-			}
 			try 
 			{
 				include '../models/registerModel.php';
-				new Register($keys, $values);	
+				new Register();	
 			} 
 			catch (Exception $e) 
 			{
@@ -49,8 +39,4 @@
 			}
 		}
 	}
-	else
-	{
-		include './login.php';
-	}
- ?>
+?>

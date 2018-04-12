@@ -2,10 +2,9 @@
     session_start();
     if (! isset($_SESSION['username'])) 
     {
-        include_once 'controllers/loginController.php';
+        include_once 'login.php';
         die();
-     } 
-     //session_destroy();
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,7 +57,7 @@
         </div>
         <div class="clear"></div>
         <footer>
-            <p>Copy Right Reserved &copy; Zahraa Saied 2017</p>
+            <p>Copy Right Reserved &copy; Zahraa Saied 2018</p>
         </footer>
         </div>
     </body>

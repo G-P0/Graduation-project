@@ -1,30 +1,34 @@
 <?php 
 	
-	include '../models/databasecon.php';
-	class Register
+	include_once 'databaseConnect.php';
+	
+	class Register extends DatabaseConnect
 	{
-		private  $attributes = array();
-		private  $data = array();
-		private $dbObj;
-		function __construct($attributes, $data)
+		private $attributes = array();
+		private $data = array();
+
+		function __construct()
 		{
-			$this->setData($attributes, $data);
+			$this->connectToDb();
+			$this->PreparData();
 			$this->insertData();
+			$this->dbObj->close($this->dbLink);
 		}
-		function setData($attributes, $data)
+
+		function PreparData()
 		{
-			$this->attributes = $attributes;
-			$this->data = $data ;
+			include 'dataValidation.php';
+			foreach ($_POST as $key => $value) 
+			{
+				if ($key == 'submit') 
+					continue;
+				$this->attributes[] = mysqli_real_escape_string($this->dbLink,$key);
+				$this->data[] = mysqli_real_escape_string($this->dbLink,$value);
+			}
 		}
-		private function connectToDb()
-		{
-			$vars = "../includes/vars.php";
-			$this->dbObj = new DatabaseCon($vars);
-			return $this->dbObj->connect();
-		}
+
 		private function insertData()
 		{			
-			$con = $this->connectToDb();
 			$tuples = implode($this->attributes, "`,`");
 			$dataValues = implode($this->data, "','");
 			//echo $tuples;
@@ -33,8 +37,7 @@
 			//echo "<br>";
 			$query = "INSERT INTO `users` (`id`,`".$tuples."`) VALUES (NULL,'" .$dataValues. "')";
 			//echo $query;
-			$result = mysqli_query($con, $query);
-			
+			$result = mysqli_query($this->dbLink, $query);
 			if ($result)
 			{
 				echo "Regestration Complete!";
@@ -43,12 +46,6 @@
 			{
 				throw new Exception("Invalid Registration. Please try again !");
 			}
-			$this->close($con);
-		}
-		private function close($con)
-		{
-			//mysqli_close();
-			$this->dbObj->close($con);	
 		}
 	}
  ?>

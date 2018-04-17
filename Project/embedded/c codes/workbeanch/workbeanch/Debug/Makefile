@@ -38,11 +38,13 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../headers/CFile1.c \
+../headers/ADC.c \
+../headers/allam.c \
 ../headers/EEPROM.c \
 ../headers/keypad.c \
 ../headers/lcd.c \
 ../headers/motors.c \
+../headers/temp.c \
 ../headers/uart.c \
 ../main.c
 
@@ -54,38 +56,46 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-headers/CFile1.o \
+headers/ADC.o \
+headers/allam.o \
 headers/EEPROM.o \
 headers/keypad.o \
 headers/lcd.o \
 headers/motors.o \
+headers/temp.o \
 headers/uart.o \
 main.o
 
 OBJS_AS_ARGS +=  \
-headers/CFile1.o \
+headers/ADC.o \
+headers/allam.o \
 headers/EEPROM.o \
 headers/keypad.o \
 headers/lcd.o \
 headers/motors.o \
+headers/temp.o \
 headers/uart.o \
 main.o
 
 C_DEPS +=  \
-headers/CFile1.d \
+headers/ADC.d \
+headers/allam.d \
 headers/EEPROM.d \
 headers/keypad.d \
 headers/lcd.d \
 headers/motors.d \
+headers/temp.d \
 headers/uart.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
-headers/CFile1.d \
+headers/ADC.d \
+headers/allam.d \
 headers/EEPROM.d \
 headers/keypad.d \
 headers/lcd.d \
 headers/motors.d \
+headers/temp.d \
 headers/uart.d \
 main.d
 
@@ -103,6 +113,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

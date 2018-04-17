@@ -2,7 +2,9 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-headers\CFile1.c
+headers\ADC.c
+
+headers\allam.c
 
 headers\EEPROM.c
 
@@ -11,6 +13,8 @@ headers\keypad.c
 headers\lcd.c
 
 headers\motors.c
+
+headers\temp.c
 
 headers\uart.c
 

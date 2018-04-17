@@ -14,21 +14,24 @@
 #include "headers/libs.h"
 #include "headers/EEPROM.h"
 #include "headers/motors.h"
+#include "headers/temp.h"
+
+#include <stdio.h>
 
 int main(void)
 {
 	// disable jtag protocol
-	    MCUCSR = (1<<JTD);
-	    MCUCSR = (1<<JTD);
+	MCUCSR = (1<<JTD);
+	MCUCSR = (1<<JTD);
 	// out door light config
 	
-				//DDRA&=~(1<<3);
-				//DDRD|=(1<<2);
-				//PORTD|=(1<<2);
-				//ADMUX&=~(1<<7);
-				//ADMUX&=~(1<<6);
-				//ADMUX|=(1<<1)|(1<<0);
-				//ADCSRA|=(1<<7);
+	DDRA&=~(1<<3);
+	DDRD|=(1<<2);
+	PORTD|=(1<<2);
+	ADMUX&=~(1<<7);
+	ADMUX&=~(1<<6);
+	ADMUX|=(1<<1)|(1<<0);
+	ADCSRA|=(1<<7);
 	
 	uint16_t adc_out;
 	uint8_t i;
@@ -37,26 +40,34 @@ int main(void)
 	char GATE_PASSWORD[PASS_LEN+1];
 	
 	DDRD |= (1<<PD5); // for motor out pin
-	
+
 	EEPROM_WriteNByte(GATE_PASSWORD_ADDRESS,(uint8_t*)default_pass,PASS_LEN);
 	LCD_init();
+	stepper_motor_init();
 	_delay_ms(100);
+	
+	
 	
 	while (1)
 	{
 		LCD_clearScreen();
 		LCD_displayString("check out lights");
-		// function of out door light 
+		//	 function of out door light
 		
-			//ADCSRA|=(1<<6);
-			//_delay_ms(500);
-			//adc_out=ADCL;
-			//adc_out+=((ADCH|0x0000)<<8);
-			//if(adc_out<100)
-			//PORTD&=~(1<<2);
-			//else
-			//PORTD|=(1<<2);	
-		//_delay_ms(3000);
+		ADCSRA|=(1<<6);
+		_delay_ms(500);
+		adc_out=ADCL;
+		adc_out+=((ADCH|0x0000)<<8);
+		if(adc_out<100)
+		PORTD&=~(1<<2);
+		else
+		PORTD|=(1<<2);
+		_delay_ms(3000);
+		
+		LCD_clearScreen();
+		LCD_displayString("temp is : ");
+		LCD_intgerToString((int)get_temperture());
+		_delay_ms(3000);
 		
 		while(1)
 		{
@@ -81,10 +92,13 @@ int main(void)
 			EEPROM_readNByte( GATE_PASSWORD_ADDRESS, (uint8_t *) GATE_PASSWORD, PASS_LEN);
 			if (!strcmp(psswrd,GATE_PASSWORD)){
 				LCD_displayString("gate opens now");
-				Gate_open();
+				//Gate_open();
+				stepper_motor_RR(Deg180);
 				_delay_ms(3000);
+				LCD_clearScreen();
+				LCD_displayString("gate will close");
+				stepper_motor_RL(Deg180);
 				break;
-				
 			}
 			else{
 				LCD_displayString("WRONG PSSWRD :(");
@@ -95,10 +109,6 @@ int main(void)
 			
 		} // end while loop of
 		
-		LCD_clearScreen();
-		LCD_displayString("gate will close");
-		Gate_close();
-		_delay_ms(5000);
 		
 	} // end the main while loop
 

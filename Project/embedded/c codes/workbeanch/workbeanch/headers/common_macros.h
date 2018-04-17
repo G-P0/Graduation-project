@@ -11,7 +11,7 @@
 
 
 /* Set a certain bit in any register */
-#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
+#define SET_BIT(REG,BIT) (REG|= (1<<BIT) )
 
 /* Clear a certain bit in any register */
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))

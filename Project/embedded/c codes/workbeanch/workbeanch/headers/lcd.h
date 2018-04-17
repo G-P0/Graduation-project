@@ -26,8 +26,8 @@
 #define E  PD3
 #define LCD_CTRL_PORT PORTD
 #define LCD_CTRL_PORT_DIR DDRD
-#define LCD_DATA_PORT PORTC
-#define LCD_DATA_PORT_DIR DDRC
+#define LCD_DATA_PORT PORTA
+#define LCD_DATA_PORT_DIR DDRA
 
 /* LCD Commands */
 #define CLEAR_COMMAND 0x01

@@ -6,7 +6,12 @@
 		public static function run($sql) 
 		{
 			self::$link = parent::getInstance()->getConnection();
-			return self::$link->query($sql);
+			$result = self::$link->query($sql);
+			if (self::$link->error) 
+			{
+				throw new Exception("Error Processing SQL query");
+			}
+			return $result;
 		}
 
 		public static function closeConnection() 
@@ -14,6 +19,7 @@
 			if (self::$link) 
 			{
 				self::$link->close();
+				parent::$instance = NULL;
 			}
 		}
 	}

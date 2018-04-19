@@ -5,15 +5,32 @@
 		//Login
 		if (isset($_POST['submit']) && $_POST['submit'] == "login") 
 		{
-			include '../models/login.php';
-			new Login();
+			try 
+			{
+				include '../models/login.php';
+				new Login();
+				
+			} 
+			catch (Exception $e) 
+			{
+				echo $e->getMessage();
+			}
+			
 		}
 
 		//Register
 		if (isset($_POST['submit']) && $_POST['submit'] == "register")
 		{
-			include '../models/register.php';
-			new Register();	
+			try 
+			{
+				include '../models/register.php';
+				new Register();	
+			} 
+			catch (Exception $e) 
+			{
+				echo $e->getMessage();
+			}
+				
 		}
 	}
 ?>

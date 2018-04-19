@@ -6,7 +6,7 @@
 		private $pass = '';
 		private $db = 'smart_home';
 		private $connect;
-		private static $instance;
+		protected static $instance;
 
 		/*
 		Get an instance of the Database

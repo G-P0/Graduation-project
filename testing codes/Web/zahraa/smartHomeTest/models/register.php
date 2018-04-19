@@ -21,9 +21,9 @@
 		}
 
 		function insertData()
-		{			
-			$datainsertion = new DataInsertion();
-
+		{	
+			include_once 'dataInsertion.php';		
+			$datainsertion = new DataInsertion($this->attributes, $this->dataValues);
 		}
 	}
  ?>

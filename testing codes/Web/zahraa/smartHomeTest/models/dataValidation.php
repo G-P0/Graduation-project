@@ -18,7 +18,7 @@
 			$mysqli = Database::getInstance()->getConnection();
 			foreach ($_POST as $key => $value) 
 			{
-				if ($key == 'submit' || $key == 'passwordConfirm' ) 
+				if ($key == 'submit' || $key == 'passwordconfirm' ) 
 					continue;
 
 				if ($key == 'name') 
@@ -39,7 +39,7 @@
 					$value = filter_var($value, FILTER_SANITIZE_EMAIL);
 					$this->validateEmail($value);
 				}
-				elseif ($key == 'phone') 
+				elseif ($key == 'phone_no') 
 				{
 					$value = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
 				}
@@ -88,7 +88,7 @@
 		///////////////////validateEmail//////////////////////
 		function validateEmail($email)
 		{
-			$query = "SELECT * FROM `email` WHERE `email` = '$email'";
+			$query = "SELECT * FROM `users` WHERE `email` = '$email'";
 			$result = Query::run($query);
 			$numrows = $result->num_rows;
 			if ($numrows > 0)

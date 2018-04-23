@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2018 at 08:02 PM
+-- Generation Time: Apr 23, 2018 at 09:38 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -77,12 +77,22 @@ CREATE TABLE `users` (
   `birthdate` date NOT NULL,
   `phone_no` int(11) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `register_date` date NOT NULL,
-  `user_state` int(11) NOT NULL,
-  `privillage` int(11) NOT NULL,
-  `hash` varchar(250) NOT NULL,
-  `home_id` int(11) NOT NULL DEFAULT '-1'
+  `register_date` date DEFAULT NULL,
+  `user_state` int(11) DEFAULT NULL,
+  `privillage` int(11) DEFAULT NULL,
+  `hash` varchar(250) DEFAULT NULL,
+  `home_id` int(11) DEFAULT '-1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `name`, `username`, `email`, `password`, `birthdate`, `phone_no`, `gender`, `register_date`, `user_state`, `privillage`, `hash`, `home_id`) VALUES
+(8, 'zahraa', 'zza', 'a@a.com', '1234567as', '2018-04-12', 234567, 'female', NULL, NULL, NULL, NULL, -1),
+(9, 'zahraa saied', 'zas', 'asx@z.com', '567890as', '2018-04-11', 4567890, 'female', NULL, NULL, NULL, NULL, -1),
+(10, 'zahrraaaa', 'zzaaa', 'admin@a.com', 'as1234567', '2018-04-01', 2345670, 'female', NULL, NULL, NULL, NULL, -1),
+(11, 'moanes saied', 'mo2nes', 'm@m.com', 'abcd123456', '2018-04-03', 6789065, 'male', NULL, NULL, NULL, NULL, -1);
 
 --
 -- Indexes for dumped tables
@@ -126,7 +136,7 @@ ALTER TABLE `home`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -23,6 +23,7 @@
 		{
 			try 
 			{
+				
 				include '../models/register.php';
 				new Register();	
 			} 

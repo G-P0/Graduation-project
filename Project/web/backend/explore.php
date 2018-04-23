@@ -2,85 +2,17 @@
 <html>
 <head>
     <title>Explore Us</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Custom fonts - Font Awesome -->
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <!-- Bootstrap core CSS --> 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Custom styles -->
-    <link rel="stylesheet" type="text/css" href="css/explore.css">
+	<?php include_once "views/html_header.php"; ?>
+
 
 </head>
 <body>
-	
-	 <!-- Start Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    	<div class="container-fluid">
-    	<!-- Brand and toggle get grouped for better mobile display -->
-    	<!--Band -->
-	  <a class="navbar-brand" href="#">
-	  	<img src="images/logo1.png" alt="Logo" style="width:40px;">
-          <span>.</span>
-          <img src="images/logo5.png" alt="Logo" style="width:40px;">
-          <span>.</span>    
-          <img src="images/logo1.png" alt="Logo" style="width:40px;">
-	  </a>
-	  	<!--toggler -->
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+	 	<!-- start navbar -->
+ 	<?php
+ 	include_once "views/navbar.php";
+ 	?>
+ 	<!-- end navbar -->
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		    <ul class="navbar-nav ml-auto">
-		      <li class="nav-item active">
-		        <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#aboutus">About Us</a>
-		      </li>
-
-		      <!--Dropdown list -->
-		      <li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          Services
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		          <a class="dropdown-item" href="#outdoors">Outdoor Services</a>
-		          <div class="dropdown-divider"></div>
-		          <a class="dropdown-item" href="#">Another action</a>
-		          <a class="dropdown-item" href="#">Another action</a>
-		          <a class="dropdown-item" href="#">Another action</a>
-		          <a class="dropdown-item" href="#">Another action</a>
-		          <div class="dropdown-divider"></div>
-		          <a class="dropdown-item" href="#indoors">Indoor Services</a>
-		          <div class="dropdown-divider"></div>
-	          	  <a class="dropdown-item" href="#">Another action</a>
-		          <a class="dropdown-item" href="#">Another action</a>
-		          <a class="dropdown-item" href="#">Another action</a>
-		          <a class="dropdown-item" href="#">Another action</a>
-
-		        </div>
-		      </li>
-
-		      <li class="nav-item">
-		        <a class="nav-link" href="#contactus">Contact Us</a>
-		      </li>
-		      <!-- SignIn and SignUP -->
-		   
-			      <li class="nav-item" >
-			        <a  class="btn btn-primary" class="nav-link" href="signup.html" >Sign up</a>
-			      </li>
-			      <li class="nav-item" >
-			        <a  class="btn btn-primary" class="nav-link" href="signin.html" >Sign in</a>
-			      </li>
-		 
-		    </ul>
-  	  </div>
-  	  </div>
-	</nav>
-    <!-- End Navigation Bar -->
 
     <!-- Start Home Section -->
     <section class="home" id="home">
@@ -225,7 +157,7 @@
 	    <div  class="row">
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img  style="width: 360px;height: 360px; " src="images/yale-assure-sl-hand-800x533-c.jpg" alt="">
+	                <img  style="width: 360px;height: 360px; " src="resources/images/yale-assure-sl-hand-800x533-c.jpg" alt="">
 	            </div>
 	            <div class="desc">
 	                
@@ -233,7 +165,7 @@
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img  style="width: 360px;height: 360px;" src="images/images-of-gates-for-houses-amazing-best-25-gate-design-ideas-on-pinterest-designs-modern-home-18.jpg" alt="">
+	                <img  style="width: 360px;height: 360px;" src="resources/images/images-of-gates-for-houses-amazing-best-25-gate-design-ideas-on-pinterest-designs-modern-home-18.jpg" alt="">
 	            </div>
 	            <div class="desc">
 	                
@@ -242,7 +174,7 @@
 	       
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img style="width: 360px;height: 360px;" src="images/images (11).jpg" alt="">
+	                <img style="width: 360px;height: 360px;" src="resources/images/images (11).jpg" alt="">
 	            </div>
 	            <div class="desc">
 	                
@@ -253,7 +185,7 @@
 	        
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img  style="width: 360px;height: 360px; margin-top: 20px;" src="images/BN-IV261_0610PT_P_20150609113726.jpg" alt="">
+	                <img  style="width: 360px;height: 360px; margin-top: 20px;" src="resources/images/BN-IV261_0610PT_P_20150609113726.jpg" alt="">
 	            </div>
 	            <div class="desc">
 	               
@@ -261,7 +193,7 @@
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="images/download (1).jpg" alt="">
+	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/download (1).jpg" alt="">
 	            </div>
 	            <div class="desc">
 	              
@@ -269,7 +201,7 @@
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="images/MyQ-Garage-in-use-LOW-RES-e1505262414303.jpg" alt="">
+	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/MyQ-Garage-in-use-LOW-RES-e1505262414303.jpg" alt="">
 	            </div>
 	            <div class="desc">
 	                
@@ -289,7 +221,7 @@
 	    <div  class="row">
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img  style="width: 360px;height: 360px;" src="images/yale-assure-sl-hand-800x533-c.jpg" alt="">
+	                <img  style="width: 360px;height: 360px;" src="resources/images/yale-assure-sl-hand-800x533-c.jpg" alt="">
 	            </div>
 	            <div class="desc">
 	                
@@ -297,7 +229,7 @@
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img  style="width: 360px;height: 360px;" src="images/images-of-gates-for-houses-amazing-best-25-gate-design-ideas-on-pinterest-designs-modern-home-18.jpg" alt="">
+	                <img  style="width: 360px;height: 360px;" src="resources/images/images-of-gates-for-houses-amazing-best-25-gate-design-ideas-on-pinterest-designs-modern-home-18.jpg" alt="">
 	            </div>
 	            <div class="desc">
 	                
@@ -306,7 +238,7 @@
 	       
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img style="width: 360px;height: 360px;" src="images/images (11).jpg" alt="">
+	                <img style="width: 360px;height: 360px;" src="resources/images/images (11).jpg" alt="">
 	            </div>
 	            <div class="desc">
 	                
@@ -317,7 +249,7 @@
 	        
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img  style="width: 360px;height: 360px;margin-top: 20px;" src="images/BN-IV261_0610PT_P_20150609113726.jpg" alt="">
+	                <img  style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/BN-IV261_0610PT_P_20150609113726.jpg" alt="">
 	            </div>
 	            <div class="desc">
 	               
@@ -325,7 +257,7 @@
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="images/download (1).jpg" alt="">
+	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/download (1).jpg" alt="">
 	            </div>
 	            <div class="desc">
 	              
@@ -333,7 +265,7 @@
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
-	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="images/MyQ-Garage-in-use-LOW-RES-e1505262414303.jpg" alt="">
+	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/MyQ-Garage-in-use-LOW-RES-e1505262414303.jpg" alt="">
 	            </div>
 	            <div class="desc">
 	                
@@ -353,7 +285,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-6">
-					<img src="images/whychooseus (1).jpg" style=" height: 500px">
+					<img src="resources/images/whychooseus (1).jpg" style=" height: 500px">
 				</div>
 				<div class="col-6">
 					
@@ -392,78 +324,9 @@
 	<!-- End Contact Us-->
 
 
-	<!-- Start Footer -->
-	<footer class="footer">
-		<div class="container-fluid">
-			<div class="row">
-				<div col-md-6>
-					
-				</div>
-				<div col-md-6>
-					
-				</div>
-			</div>
-			<div class="socialmedia">
-				 
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i id="facebook" , class="fa fa-facebook-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i id="twitter", class="fa fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i id="linkedin", class="fa fa-linkedin-square"></i>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">
-                            <i id="google", class="fa fa-google-plus-square" ></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i id="mail", class="fa fa-envelope-o"></i>
-                        </a>
-                    </li>
-                </ul>
-			</div>
-			
-			
-		</div>
-		<div class="designer">
-                Copyrights &copy; 2018 &#124; Reserved to FEE-CSE-GP-Web Team
-            </div>
-		
-	</footer>
-	<!-- End Footer -->
 
+<?php include_once "views/html_footer.php" ?>
 
-
-
-
-    <!--Required Scripting Libraries -->
-<script src="script/smooth-scroll.min.js"></script>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
-
-<!--Smoothscroll -->
-        
-        <script>
-            var scroll = new SmoothScroll('a[href*="#"]',
-                                           { speed:1000,
-                                          
-                                           }
-                                         );
-           
-        </script>
 </body>
 
 </html>

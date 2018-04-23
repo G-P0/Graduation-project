@@ -16,18 +16,16 @@
 		}
 
 		function PreparData()
-		{
+		{			
 			$mysqli = Database::getInstance()->getConnection();
+		
+			$this->confirmedPass = $mysqli->real_escape_string($_POST['passwordconfirm']);
 			foreach ($_POST as $key => $value) 
 			{
-				if ($key == 'submit') 
+				if ($key == 'submit'|| $key == 'passwordconfirm') 
 					continue;
 
-				if ($key == 'passwordconfirm') 
-				{
-					$this->confirmedPass = $mysqli->real_escape_string($value);
-					continue;
-				}
+				
 
 				if ($key == 'name') 
 				{
@@ -53,10 +51,8 @@
 				}
 				$this->attributes[] = $mysqli->real_escape_string($key);
 				$this->data[] = $mysqli->real_escape_string($value);
-				//$key = $mysqli->real_escape_string($key);
-				//$value = $mysqli->real_escape_string($value);
-				//$this->preparedData[$key] = $value;
 			}
+		
 			Query::closeConnection();
 		}
 
@@ -81,6 +77,7 @@
 		////////////////ValidatePassword//////////////////
 		function ValidatePassword($pass)
 		{
+
 			if (strlen($pass) < 8) 
 			{
 				$_SESSION['errors']['password'] = 1;

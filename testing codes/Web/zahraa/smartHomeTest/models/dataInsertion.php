@@ -27,7 +27,7 @@
 			$result = Query::run($query);
 			if ($result)
 			{
-				echo "Regestration Complete!";
+				
 			}
 			else
 			{

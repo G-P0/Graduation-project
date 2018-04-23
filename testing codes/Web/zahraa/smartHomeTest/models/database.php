@@ -3,7 +3,7 @@
 	{
 		private $host = 'localhost';
 	 	private $user = 'root';
-		private $pass = '';
+		private $pass = 'root';
 		private $db = 'smart_home';
 		private $connect;
 		protected static $instance;

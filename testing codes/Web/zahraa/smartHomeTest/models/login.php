@@ -37,14 +37,15 @@
 			{
 				session_start();
 				$_SESSION['user'] = $this->user;
-				header("Location: ../index.php");
+				echo"welcome ya ".$_SESSION['user'];
+				//header("Location: ../index.php");
 				die();
 			}
 			else
 			{
 				$_SESSION['errors']['login_err'] = 1;
-				//"Invalid username or password. Please try again !";
-			}
+				echo"wrong password ya 7lw :P";
+				}
 		}
 	}
 

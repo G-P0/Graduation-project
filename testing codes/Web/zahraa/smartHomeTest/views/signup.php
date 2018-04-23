@@ -21,20 +21,24 @@
 					<!-- Name -->
 					<div class="form-group">
 						<label for="inputName">Name</label>
-						<input type="text" class="form-control" placeholder="Enter your first and last name" name="name" required>
+						<input type="text" class="form-control" placeholder="Enter your first and last name" name="name" required 
+						<?php echo "value='".@$_SESSION['data']['name']."'"; ?>
+						 >
 				  	</div>
 				  	<!-- Username -->
 				  	<div class="form-group">
 				  		<label for="inputUserName">Username</label>
-				  		<input type="text" class="form-control" placeholder="Enter your username" name="username" required>
+				  		<input type="text" class="form-control" placeholder="Enter your username" name="username" required
+				  		<?php echo "value='".@$_SESSION['data']['username']."'"; ?>
+				  		>
 				  		<?php 
 							if (isset($_SESSION['errors'])) 
 							{
-								if ($_SESSION['errors']['username'] = 1) 
+								if (@$_SESSION['errors']['username'] == 1) 
 								{
 									echo "<strong>Username cann't contain any spaces or special characters except _ </strong><br>";
 								}
-								elseif ($_SESSION['errors']['username'] = 2) 
+								elseif (@$_SESSION['errors']['username'] == 2) 
 								{
 									echo "<strong>This Username belongs to an existing account. Please try a different Username!</strong><br>";
 								}
@@ -44,11 +48,13 @@
 				  	<!-- E-mail -->
 				  	<div class="form-group">
 				  		<label for="inputEmail">E-mail</label>
-				  		<input type="text" class="form-control" placeholder="Enter your E-mail" name="email" required>
+				  		<input type="text" class="form-control" placeholder="Enter your E-mail" name="email" required
+				  		<?php echo "value='".@$_SESSION['data']['email']."'"; ?>
+				  		>
 				  		<?php 
 							if (isset($_SESSION['errors'])) 
 							{
-								if ($_SESSION['errors']['email'] = 1) 
+								if (@$_SESSION['errors']['email'] == 1) 
 								{
 									echo "<strong>This Email belongs to an existing user. Please try a different Email or simply try to login!</strong><br>";
 								}
@@ -66,11 +72,11 @@
 								<?php 
 									if (isset($_SESSION['errors'])) 
 									{
-										if ($_SESSION['errors']['password'] = 1) 
+										if (@$_SESSION['errors']['password'] == 1) 
 										{
 											echo "<strong>Password must contain at least 8 characters!</strong><br>";
 										}
-										elseif ($_SESSION['errors']['password'] = 2) 
+										elseif (@$_SESSION['errors']['password'] == 2) 
 										{
 											echo "<strong>Password must contain both letters and characters!</strong><br>";
 										}
@@ -83,11 +89,14 @@
 	      						<?php 
 									if (isset($_SESSION['errors'])) 
 									{
-										if ($_SESSION['errors']['password'] = 3) 
+										if (@$_SESSION['errors']['password'] == 3) 
 										{
 											echo "<strong>Mismatch of password confirmation. Please enter the same password twice </strong><br><br>";
-										}
+											
+										}	
 									}
+									unset($_SESSION['errors']);
+									unset($_SESSION['data']);
 								?>
 						    </div>
 				    </div>
@@ -99,7 +108,9 @@
 				    	</div>
 				    	<div class="col">
 						  		<label for="inputPhoneNo">Phone No.</label>
-						  		<input type="numbers" class="form-control" placeholder="phone" name="phone_no" required>
+						  		<input type="numbers" class="form-control" placeholder="phone" name="phone_no" required
+						  		<?php echo "value='".@$_SESSION['data']['phone_no']."'"; ?>
+						  		>
 				    	</div>
 				    </div>	
 				    <!-- Gender  -->

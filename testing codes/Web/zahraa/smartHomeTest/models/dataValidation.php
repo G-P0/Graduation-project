@@ -2,10 +2,12 @@
 	include_once 'queryExecution.php';
 	session_start();
 
+
 	class DataValidation
 	{
 		public $attributes = array();
 		public $data = array();
+		public $confirmedPass ;
 		//public $preparedData = array();
 
 		function __construct()
@@ -14,12 +16,16 @@
 		}
 
 		function PreparData()
-		{
+		{			
 			$mysqli = Database::getInstance()->getConnection();
+		
+			$this->confirmedPass = $mysqli->real_escape_string($_POST['passwordconfirm']);
 			foreach ($_POST as $key => $value) 
 			{
-				if ($key == 'submit' || $key == 'passwordConfirm' ) 
+				if ($key == 'submit'|| $key == 'passwordconfirm') 
 					continue;
+
+				
 
 				if ($key == 'name') 
 				{
@@ -39,16 +45,14 @@
 					$value = filter_var($value, FILTER_SANITIZE_EMAIL);
 					$this->validateEmail($value);
 				}
-				elseif ($key == 'phone') 
+				elseif ($key == 'phone_no') 
 				{
 					$value = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
 				}
 				$this->attributes[] = $mysqli->real_escape_string($key);
 				$this->data[] = $mysqli->real_escape_string($value);
-				//$key = $mysqli->real_escape_string($key);
-				//$value = $mysqli->real_escape_string($value);
-				//$this->preparedData[$key] = $value;
 			}
+		
 			Query::closeConnection();
 		}
 
@@ -73,22 +77,30 @@
 		////////////////ValidatePassword//////////////////
 		function ValidatePassword($pass)
 		{
+
 			if (strlen($pass) < 8) 
 			{
 				$_SESSION['errors']['password'] = 1;
 				//"Password must contain at least 8 characters!";
 			}
 
+
 			if (! preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $pass))
 			{
 	    		$_SESSION['errors']['password'] = 2;
 	    		//"Password must contain letters and characters!";
 			}
+
+			if ($this->confirmedPass != $pass) 
+			{
+				$_SESSION['errors']['password'] = 3;
+				//"Mismatch of password confirmation. Please enter the same password twice ";
+			}
 		}
 		///////////////////validateEmail//////////////////////
 		function validateEmail($email)
 		{
-			$query = "SELECT * FROM `email` WHERE `email` = '$email'";
+			$query = "SELECT * FROM `users` WHERE `email` = '$email'";
 			$result = Query::run($query);
 			$numrows = $result->num_rows;
 			if ($numrows > 0)

@@ -98,7 +98,8 @@
               {
                 echo"<strong>Welcome ".@$_SESSION['username']."</strong>";
             ?>
-              <a href="logout.php" class="btn btn-primary btn-lg">Logout</a>
+              <a href="logout.php" class="btn btn-primary btn-lg">Logout</a>  <br><br>
+              <a href="actions.php" class="btn btn-success btn-lg">show actions data</a>
             <?php 
               }
               else

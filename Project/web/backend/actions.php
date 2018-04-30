@@ -37,30 +37,33 @@
 </style>
 <body>
 	<form action="controllers/C_actions.php" method="post" enctype="multipart/form-data">
-		<input type="submit" class="btn btn-success btn-lg" name="submit" value="actionData">		
+		<input type="submit" class="btn btn-success btn-lg" name="submit" value="Show Actions Privilege">
+		<input type="submit" name="submit" value="Update Privllage">		
 	<br><br>
 	<table>
-		<thead>
-			<tr>
-				<th>action</th>
-				<th>super user</th>
-				<th>user</th>
-			</tr>
-		</thead>
 			<?php 
 				if (isset($_SESSION['actionsPriv'])) 
 				{
+					echo 	"<thead>
+								<tr>
+									<th>Action</th>
+									<th>Super user</th>
+									<th>Normal user</th>
+								</tr>
+							</thead>";
 	 				foreach ($_SESSION['actionsPriv'] as $action => $privillage) 
 					{
 						
 						echo 	"<tr>
 									<td>$action</td>
-									<td><input type='radio' name='$action' value='1'";
-									if ($privillage == 1)
+									<td><input type='radio' name='$action' value='2'";
+									if ($privillage == 2)
+										//this action related to superuser
 										echo "checked = 'checked'";
 						echo 	"	></td>
-									<td><input type='radio' name='$action' value='0'";
-									if ($privillage == 0)
+									<td><input type='radio' name='$action' value='1'";
+									if ($privillage == 1)
+										//this action related to normal user
 										echo "checked = 'checked'";
 						echo	"	></td>
 								</tr> ";
@@ -70,8 +73,6 @@
  				}
 			?>
 	</table>
-		<br>
-		<input type="submit" name="submit" value="updateActionPrivllage">	
 	</form>	
 </body>
 </html>

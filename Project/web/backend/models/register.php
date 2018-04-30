@@ -5,6 +5,7 @@
 	{
 		private $attributes = array();
 		private $dataValues = array();
+		private $registerDate;
 
 		function __construct()
 		{
@@ -23,6 +24,12 @@
 			}
 			$this->attributes = $readyData->attributes;
 			$this->dataValues = $readyData->data;
+		}
+
+		function getRegisterdate()
+		{
+			date_default_timezone_set('Africa/Cairo');
+			$this->registerDate = date('Y-m-d',time());
 		}
 
 		function insertData()

@@ -1,16 +1,16 @@
 <?php 
 	include_once 'queryExecution.php';
 	session_start();
-	class ActionsPrivillageUpdate
+	class ActionsStateUpdate
 	{
-		private $actionsPriv = array();
-		private $home_id;
+		private $actionsState = array();
+		private $homeId;
 		private $username;
 		function __construct()
 		{
 			$this->getData();
 			$this->getHomeId();
-			$this->updateActionsPriv();
+			$this->updateActionsState();
 		}
 
 		function getData()
@@ -20,7 +20,7 @@
 			{
 				if ($key == 'submit') 
 					continue;
-				$this->actionsPriv[$key] = $value;
+				$this->actionsState[$key] = $value;
 			}
 		}
 		function getHomeId()
@@ -31,12 +31,12 @@
 							FROM `users` 
 							WHERE `username` = '$this->username'";
 				$result  = Query::run($query);
-				$this->home_id = $result->fetch_assoc()['home_id'];
+				$this->homeId = $result->fetch_assoc()['home_id'];
 		}
-		function updateActionsPriv()
+		function updateActionsState()
 		{
 			
-			foreach ($this->actionsPriv as $action => $priv) 
+			foreach ($this->actionsState as $action => $state) 
 			{
 				$query = "SELECT `action_id` 
 							FROM `actions` 
@@ -45,15 +45,15 @@
 				$action = $result->fetch_assoc()['action_id'];
 
 				$query = "UPDATE `action_data` 
-							SET `privillage` = '$priv' 
-							WHERE `home_id` = '$this->home_id' 
+							SET `action_state` = '$state' 
+							WHERE `home_id` = '$this->homeId' 
 							AND `action_data`.`action_id` = '$action'";
 				$result  = Query::run($query);
 			}
 			
 			if ($result)
 			{
-				$_SESSION['actionsPriv'] = $this->actionsPriv;
+				$_SESSION['actionsState'] = $this->actionsState;
 			}
 			else
 			{

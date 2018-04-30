@@ -3,10 +3,10 @@
 	{
 		private $host = 'localhost';
 	 	private $user = 'root';
-		private $pass = '';
+		private $pass = 'root';
 		private $db = 'smart_home';
 		private $connect;
-		private static $instance;
+		protected static $instance;
 
 		/*
 		Get an instance of the Database

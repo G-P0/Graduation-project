@@ -5,19 +5,29 @@
 		private $attributes = array();
 		private $data = array();
 		
-		function __construct()
+		function __construct($attr,$val)
 		{
+			$this->setData($attr,$val);
 			$this->insertData();
 		}
-		public static function insertData()
+
+		function setData($attr, $val)
+		{
+			$this->attributes = $attr;
+			$this->data = $val;
+		}
+
+		public function insertData()
 		{			
-			$tuples = implode($this->attributes, "`,`");
+			$fields = implode($this->attributes, "`,`");
 			$dataValues = implode($this->data, "','");
-			$query = "INSERT INTO `users` (`id`,`".$tuples."`) VALUES (NULL,'" .$dataValues. "')";
+			$query = "INSERT INTO `users` (`user_id`,`".$fields."`) VALUES (NULL,'" .$dataValues. "')";
+			//echo $query;
+			//die();
 			$result = Query::run($query);
 			if ($result)
 			{
-				echo "Regestration Complete!";
+				
 			}
 			else
 			{

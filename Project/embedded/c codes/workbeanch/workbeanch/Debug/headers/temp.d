@@ -1,5 +1,5 @@
-main.d main.o: .././main.c .././headers/lcd.h \
- .././headers/common_macros.h .././headers/micro_config.h \
+headers/temp.d headers/temp.o: ../headers/temp.c ../headers/temp.h \
+ ../headers/common_macros.h ../headers/micro_config.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -17,16 +17,13 @@ main.d main.o: .././main.c .././headers/lcd.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- .././headers/keypad.h .././headers/libs.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- .././headers/EEPROM.h .././headers/motors.h .././headers/ADCFunc.h \
- .././headers/ADC.h .././headers/uart.h
+ ../headers/ADC.h
 
-.././headers/lcd.h:
+../headers/temp.h:
 
-.././headers/common_macros.h:
+../headers/common_macros.h:
 
-.././headers/micro_config.h:
+../headers/micro_config.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -62,18 +59,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
-.././headers/keypad.h:
-
-.././headers/libs.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
-
-.././headers/EEPROM.h:
-
-.././headers/motors.h:
-
-.././headers/ADCFunc.h:
-
-.././headers/ADC.h:
-
-.././headers/uart.h:
+../headers/ADC.h:

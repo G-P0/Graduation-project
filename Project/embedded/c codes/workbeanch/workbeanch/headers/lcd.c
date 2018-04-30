@@ -40,8 +40,8 @@ void LCD_sendCommand(uint8_t command)
 	#if (DATA_BITS_MODE == 4)
 	/* out the highest 4 bits of the required command to the data bus D4 --> D7 */
 	#ifdef UPPER_PORT_PINS							/* if the higher pins in lcd is used */
-	
-	LCD_DATA_PORT = (command & 0xF0);
+	//rest the 
+	LCD_DATA_PORT = ((command & 0xF0));
 	#else
 	/* out the highest 4 bits of the required command to the data bus D0 --> D3 */
 	LCD_DATA_PORT = ((command >> 4) & 0x0F);

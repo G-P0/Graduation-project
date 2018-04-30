@@ -44,7 +44,7 @@ C_SRCS +=  \
 ../headers/keypad.c \
 ../headers/lcd.c \
 ../headers/motors.c \
-../headers/temp.c \
+../headers/ADCFunc.c \
 ../headers/uart.c \
 ../main.c
 
@@ -62,7 +62,7 @@ headers/EEPROM.o \
 headers/keypad.o \
 headers/lcd.o \
 headers/motors.o \
-headers/temp.o \
+headers/ADCFunc.o \
 headers/uart.o \
 main.o
 
@@ -73,7 +73,7 @@ headers/EEPROM.o \
 headers/keypad.o \
 headers/lcd.o \
 headers/motors.o \
-headers/temp.o \
+headers/ADCFunc.o \
 headers/uart.o \
 main.o
 
@@ -84,7 +84,7 @@ headers/EEPROM.d \
 headers/keypad.d \
 headers/lcd.d \
 headers/motors.d \
-headers/temp.d \
+headers/ADCFunc.d \
 headers/uart.d \
 main.d
 
@@ -95,7 +95,7 @@ headers/EEPROM.d \
 headers/keypad.d \
 headers/lcd.d \
 headers/motors.d \
-headers/temp.d \
+headers/ADCFunc.d \
 headers/uart.d \
 main.d
 

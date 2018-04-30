@@ -18,7 +18,10 @@
 
 
 /* deceleration of UART functions  */
-void UART_init(uint8_t baud_rate);
-
+void UART_init(uint16_t baud_rate);
+void UART_send_char(char data);
+char UART_receive_char();
+void UART_send_string(char *data);
+char *UART_receive_string();
 
 #endif /* UART_H_ */

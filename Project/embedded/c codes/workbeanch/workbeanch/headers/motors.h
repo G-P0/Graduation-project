@@ -1,9 +1,9 @@
 /*
- * motors.h
- *
- * Created: 4/9/2018 9:09:44 PM
- *  Author: zaian
- */ 
+* motors.h
+*
+* Created: 4/9/2018 9:09:44 PM
+*  Author: zaian
+*/
 
 #include "common_macros.h"
 #include "micro_config.h"
@@ -40,12 +40,15 @@ void stepper_motor_init();
 /************************************************************************/
 /*						servo motors                                                                     */
 /************************************************************************/
-#define Gate_open()  Timer1_Fast_PWM_Init(187) 
-#define Gate_close() Timer1_Fast_PWM_Init(124);
 
+#define SERVO_OUT_PIN PD5
+#define SERVO_OUT_PORT_DIR DDRD
 
+#define  SERVO_DEG_180 250
 
-void Timer1_Fast_PWM_Init(unsigned short duty_cycle);
+void Timer1_Fast_PWM_init();
+void Timer1_Fast_PWM_rotate(unsigned short duty_cycle);
+void Timer1_Fast_PWM_stop();
 
 
 

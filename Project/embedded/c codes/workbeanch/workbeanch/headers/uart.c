@@ -8,7 +8,7 @@
 #include "uart.h"
 
 /* initialize UART without interrupt funtions */
-void UART_init(uint8_t baud_rate)
+void UART_init(uint16_t baud_rate)
 {
 	uint16_t UBRR_Value = lrint ( (F_CPU / (16L * baud_rate) ) -1);  /* calculate the value of UBRR (f/16*baudrate)-1 */
 	UBRRL = (uint8_t) UBRR_Value;

@@ -1,9 +1,9 @@
 <?php 
 	include_once 'queryExecution.php';
-
+	session_start();
 	class ActionsData
 	{
-		
+		private $actionsPriv = array();
 		function __construct()
 		{
 			$this->getActionsData();
@@ -16,9 +16,12 @@
 						WHERE `home_id` = '1' 
 						AND `action_data`.`action_id` = `actions`.`action_id`";
 			$result  = Query::run($query);
-			print_r($result);
-			die();
-			$numrows = $result->num_rows; 
+			while ($row = $result->fetch_assoc()) 
+			{
+        		$this->actionsPriv[$row["action_name"]] = $row["privillage"];
+    		}
+
+    		$_SESSION['actionsPriv'] = $this->actionsPriv;
 		}
 	}
 ?>

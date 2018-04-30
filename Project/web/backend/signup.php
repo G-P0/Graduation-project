@@ -110,7 +110,7 @@
 				    	</div>
 				    	<div class="col">
 						  		<label for="inputPhoneNo">Phone No.</label>
-						  		<input type="numbers" class="form-control" placeholder="phone" name="phone_no" required
+						  		<input type="tel" class="form-control" placeholder="phone" name="phone_no" required
 						  		<?php echo "value='".@$_SESSION['data']['phone_no']."'"; ?>
 						  		>
 				    	</div>

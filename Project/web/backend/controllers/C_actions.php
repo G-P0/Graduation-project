@@ -8,7 +8,8 @@
 			{
 				include '../models/ActionsData.php';
 				new ActionsData();
-				
+    			header("Location: ../actions.php");
+    			die();
 			} 
 			catch (Exception $e) 
 			{
@@ -16,5 +17,21 @@
 			}
 
 		}
+		if (isset($_POST['submit']) && $_POST['submit'] == "updateActionPrivllage") 
+		{
+			try 
+			{
+				include '../models/ActionsPrivillageUpdate.php';
+				new ActionsPrivillageUpdate();
+    			header("Location: ../actions.php");
+    			die();
+			} 
+			catch (Exception $e) 
+			{
+				echo $e->getMessage();
+			}
+
+		}
+
 	}	
 ?>

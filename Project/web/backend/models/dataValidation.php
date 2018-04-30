@@ -2,7 +2,6 @@
 	include_once 'queryExecution.php';
 	session_start();
 
-
 	class DataValidation
 	{
 		public $attributes = array();
@@ -25,7 +24,6 @@
 				if ($key == 'submit'|| $key == 'passwordconfirm') 
 					continue;
 
-				
 
 				if ($key == 'name') 
 				{

@@ -1,9 +1,5 @@
 <?php 
-session_start();
-if (isset($_SESSION['msg'])) {
- 	echo $_SESSION['msg'];
- 	unset($_SESSION['msg']);
- } 
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,15 +30,14 @@ if (isset($_SESSION['msg'])) {
 		padding:7px; 
 		text-align:center; 
 		border-radius: 5px;
-		width:100px;
+		width:150px;
 		border: 1px solid #bbc1b7;
 		background:#d7dad7;
 	}
 </style>
 <body>
 	<form action="controllers/C_actions.php" method="post" enctype="multipart/form-data">
-		<input type="submit" class="btn btn-success btn-lg" name="submit" value="actionData">	
-	</form>	
+		<input type="submit" class="btn btn-success btn-lg" name="submit" value="actionData">		
 	<br><br>
 	<table>
 		<thead>
@@ -53,7 +48,30 @@ if (isset($_SESSION['msg'])) {
 			</tr>
 		</thead>
 			<?php 
+				if (isset($_SESSION['actionsPriv'])) 
+				{
+	 				foreach ($_SESSION['actionsPriv'] as $action => $privillage) 
+					{
+						
+						echo 	"<tr>
+									<td>$action</td>
+									<td><input type='radio' name='$action' value='1'";
+									if ($privillage == 1)
+										echo "checked = 'checked'";
+						echo 	"	></td>
+									<td><input type='radio' name='$action' value='0'";
+									if ($privillage == 0)
+										echo "checked = 'checked'";
+						echo	"	></td>
+								</tr> ";
+					}
+
+ 					unset($_SESSION['actionsPriv']);
+ 				}
 			?>
 	</table>
+		<br>
+		<input type="submit" name="submit" value="updateActionPrivllage">	
+	</form>	
 </body>
 </html>

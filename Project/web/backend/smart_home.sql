@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2018 at 12:03 PM
+-- Generation Time: Apr 26, 2018 at 10:45 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -129,9 +129,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `name`, `username`, `email`, `password`, `birthdate`, `phone_no`, `gender`, `register_date`, `user_state`, `privillage`, `hash`, `home_id`) VALUES
-(8, 'zahraa', 'zza', 'a@a.com', '1234567as', '2018-04-12', 234567, 'female', NULL, NULL, NULL, NULL, -1),
-(9, 'zahraa saied', 'zas', 'asx@z.com', '567890as', '2018-04-11', 4567890, 'female', NULL, NULL, NULL, NULL, -1),
-(10, 'zahrraaaa', 'zzaaa', 'admin@a.com', 'as1234567', '2018-04-01', 2345670, 'female', NULL, NULL, NULL, NULL, -1),
+(1, 'zahra', 'zza', 'a@a.com', '1234567as', '2018-04-12', 234567, 'female', NULL, NULL, NULL, NULL, -1),
+(2, 'zahraa saied', 'zsb', 'asx@z.com', '567890as', '2018-04-11', 4567890, 'female', NULL, NULL, NULL, NULL, -1),
+(3, 'zahrraaa', 'zzaa', 'admin@a.com', 'as1234567', '2018-04-01', 2345670, 'female', NULL, NULL, NULL, NULL, -1),
 (11, 'moanes saied', 'mo2nes', 'm@m.com', 'abcd123456', '2018-04-03', 6789065, 'male', NULL, NULL, NULL, NULL, -1);
 
 --

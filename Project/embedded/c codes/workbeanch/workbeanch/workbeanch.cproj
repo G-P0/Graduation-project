@@ -162,10 +162,10 @@
     <Compile Include="headers\motors.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="headers\temp.c">
+    <Compile Include="headers\ADCFunc.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="headers\temp.h">
+    <Compile Include="headers\ADCFunc.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="headers\uart.c">

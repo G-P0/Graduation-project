@@ -14,7 +14,7 @@ headers\lcd.c
 
 headers\motors.c
 
-headers\temp.c
+headers\ADCFunc.c
 
 headers\uart.c
 

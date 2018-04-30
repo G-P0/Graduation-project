@@ -21,13 +21,13 @@
 #endif
 
 /* LCD HW Pins */
-#define RS PD0
-#define RW PD1
-#define E  PD3
-#define LCD_CTRL_PORT PORTD
-#define LCD_CTRL_PORT_DIR DDRD
-#define LCD_DATA_PORT PORTA
-#define LCD_DATA_PORT_DIR DDRA
+#define RS PA5
+#define RW PA6
+#define E  PA7
+#define LCD_CTRL_PORT PORTA
+#define LCD_CTRL_PORT_DIR DDRA
+#define LCD_DATA_PORT PORTC
+#define LCD_DATA_PORT_DIR DDRC
 
 /* LCD Commands */
 #define CLEAR_COMMAND 0x01

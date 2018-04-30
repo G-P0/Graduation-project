@@ -19,7 +19,7 @@ void stepper_motor_RL(uint16_t deg){
 	for (int i=deg ;i>0;i--){
 		if(value==0x10){
 			value=0x01;
-		}		
+		}
 		STEPPER_MOTOR_PORT&=~(0x0f);
 		STEPPER_MOTOR_PORT|=(0x0f&value);
 		_delay_ms(10);
@@ -53,23 +53,34 @@ void stepper_motor_RR(uint16_t deg){
 /************************************************************************/
 /*						servo motors                                                                     */
 /************************************************************************/
-void Timer1_Fast_PWM_Init(unsigned short duty_cycle)
+
+void Timer1_Fast_PWM_init()
 {
+	SET_BIT(SERVO_OUT_PORT_DIR,SERVO_OUT_PIN);
 	TCNT1 = 0;		/* Set timer1 initial count to zero */
 	ICR1 = 2499;	/* Set TOP count for timer1 in ICR1 register */
-
-	OCR1A = duty_cycle; /* Set the compare value */
-
-
-	TCCR1A = (1<<WGM11) | (1<<COM1A1);
-
+	TCCR1A |= (1<<WGM11) ;
 	/* Configure timer control register TCCR1A
 	* 1. Fast Pwm Mode with the TOP in ICR1 WGM12=01 WGM13=1
 	* 2. Prescaler = F_CPU/64
 	*/
-	TCCR1B = (1<<WGM12) | (1<<WGM13) | (1<<CS10) | (1<<CS11);
+	TCCR1B |= (1<<WGM12) | (1<<WGM13)  | (1<<CS11);
+	
+}
+void Timer1_Fast_PWM_rotate(unsigned short duty_cycle)
+{
+	TCNT1 = 0;		/* Set timer1 initial count to zero */
+
+	OCR1A = duty_cycle; /* Set the compare value */
+	
+	TCCR1A |= (1<<COM1A1);
+
 }
 
+void Timer1_Fast_PWM_stop()
+{
+	TCCR1A &= ~(1<<COM1A1);
+}
 
 
 

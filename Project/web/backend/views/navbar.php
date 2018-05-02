@@ -96,10 +96,11 @@
             <?php 
               if (isset($_SESSION['username'])) 
               {
-                echo"<strong>Welcome ".@$_SESSION['username']."</strong>";
+                echo"<strong style = 'color:red'>Welcome ".@$_SESSION['username']."</strong>";
             ?>
               <a href="logout.php" class="btn btn-primary btn-lg">Logout</a>  <br><br>
-              <a href="actions.php" class="btn btn-success btn-lg">show actions data</a>
+              <a href="actions.php" class="btn btn-success btn-lg">Actions</a>
+              <a href="home.php" class="btn btn-success btn-lg">Home Control</a>
             <?php 
               }
               else

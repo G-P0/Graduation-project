@@ -1,11 +1,11 @@
-<?php 
-	include_once 'queryExecution.php';
+<?php
+	include_once 'Query.php';
 
-	class Login 
+	class Login
 	{
 		private $user;
 		private $password;
-		
+
 		function __construct()
 		{
 			$this->getData();
@@ -22,7 +22,7 @@
 
 		private function authenticateUser()
 		{
-			if (filter_var($this->user, FILTER_VALIDATE_EMAIL)) 
+			if (filter_var($this->user, FILTER_VALIDATE_EMAIL))
 			{
 				$query = "SELECT * FROM `users` WHERE `email` = '$this->user' AND `password` = '$this->password'";
 			}
@@ -30,7 +30,7 @@
 			{
 				$query = "SELECT * FROM `users` WHERE `username` = '$this->user' AND `password` = '$this->password'";
 			}
-			
+
 			$result  = Query::run($query);
 			$numrows = $result->num_rows;
 			if ($numrows == 1)

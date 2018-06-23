@@ -2,12 +2,12 @@
 <html>
     <head lang="en">
         <title>Support</title>
-      <?php include_once "views/html_header.php"; ?>
+      include_once "includes/html_header.php";
     </head>
     <body>
         <!-- start navbar -->
   <?php
-  include_once "views/navbar.php";
+  include_once "includes/navbar.php";
   ?>
   <!-- end navbar -->
 
@@ -28,8 +28,8 @@
                 <div class="carousel-item active">
                   <img class="d-block w-100 " src="resources/images/slider/c1.jpg" alt="First slide" style="width: 1300px ; height: 500px;" >
                   <div class="carousel-caption d-none d-md-block">
-                    
-                    </div> 
+
+                    </div>
               </div>
                 <div class="carousel-item">
                   <img class="d-block w-100 " src="resources/images/slider/c4.jpg" alt="Second slide" style="width: 1300px ; height: 500px;">
@@ -38,14 +38,14 @@
                 <div class="col-xl-9 mx-auto slide2">
                   <h1 >MAKE YOUR HOME THE SMARTEST ON THE BLOCK</h1>
                   <p>PERSONALIZE YOUR HOME TO BE MORE COMFORTABLE, CONVENIENT, AND SECURE.</p>
-                </div> 
+                </div>
               </div>
                   </div>
                 </div>
                 <div class="carousel-item">
                   <img class="d-block w-100 " src="resources/images/slider/c3.jpg" alt="Third slide" style="width: 1300px ; height: 500px;">
                   <div class="carousel-caption d-none d-md-block">
-                      
+
                     </div>
                 </div>
                 <!-- End Carousel Items -->
@@ -78,7 +78,7 @@
                 <p>
                    For Security Dispatch and Monitoring Services call 800-843-5154 and have your account number ready.
 
-                   For all Billing questions please call the main office at 406-388-0676 Option 0 
+                   For all Billing questions please call the main office at 406-388-0676 Option 0
                 </p>
             </div>
             <hr>
@@ -91,7 +91,7 @@
                 <ol>
                    <li>
                         Click the "Pay Now" button below.
-                   </li> 
+                   </li>
                    <li>
                         Enter your invoice number in the description field.
                    </li>
@@ -101,7 +101,7 @@
                    <li>
                         Pay the invoice by logging in to your PayPal account or click the "Don't Have A PayPal Account" option and enter your credit card information.
                    </li>
-                </ol>     
+                </ol>
 
                 <div class="paybutton">
                     <a href="#" class="btn-primary btn-lg">Pay now</a>
@@ -109,7 +109,7 @@
                 <div class="paycom">
                     <img src="resources/images/payment/logo.png" alt="payemnt companies">
                 </div>
-                
+
             </div>
             <hr>
             <h3>USER MANUALS</h3>
@@ -126,7 +126,7 @@
                         <div class="col-3">
                             <a href="#" class="btn-primary btn-lg">Download</a>
                         </div>
-                        
+
                     </div>
                     <div class="row">
                         <div class="col-3">
@@ -140,7 +140,7 @@
                         <div class="col-3">
                             <a href="#" class="btn-primary btn-lg">Download</a>
                         </div>
-                        
+
                     </div>
                     <div class="row">
                         <div class="col-3">
@@ -154,14 +154,13 @@
                         <div class="col-3">
                             <a href="#" class="btn-primary btn-lg">Download</a>
                         </div>
-                        
+
                     </div>
-                   
+
                 </div>
             </div>
         </div>
     </section>
-<?php include_once "views/html_footer.php" ?>
+include_once "includes/html_footer.php";
     </body>
 </html>
-

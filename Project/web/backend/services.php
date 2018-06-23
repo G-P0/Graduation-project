@@ -2,13 +2,13 @@
 <html>
 <head>
 	<title>Services</title>
-	<?php include_once "views/html_header.php"; ?>
+	<?php include_once "includes/html_header.php"; ?>
 
 </head>
 <body>
 	 	<!-- start navbar -->
  	<?php
- 	include_once "views/navbar.php";
+ 	include_once "includes/navbar.php";
  	?>
  	<!-- end navbar -->
 
@@ -29,8 +29,8 @@
 			    <div class="carousel-item active">
 			      <img class="d-block w-100 " src="resources/images/slider/c1.jpg" alt="First slide" style="width: 1300px ; height: 500px;" >
 			      <div class="carousel-caption d-none d-md-block">
-  				    
-				    </div> 
+
+				    </div>
 		      </div>
 			    <div class="carousel-item">
 			      <img class="d-block w-100 " src="resources/images/slider/c4.jpg" alt="Second slide" style="width: 1300px ; height: 500px;">
@@ -39,14 +39,14 @@
                 <div class="col-xl-9 mx-auto slide2">
                   <h1 >MAKE YOUR HOME THE SMARTEST ON THE BLOCK</h1>
                   <p>PERSONALIZE YOUR HOME TO BE MORE COMFORTABLE, CONVENIENT, AND SECURE.</p>
-                </div> 
+                </div>
               </div>
 				  </div>
 			    </div>
 			    <div class="carousel-item">
 			      <img class="d-block w-100 " src="resources/images/slider/c3.jpg" alt="Third slide" style="width: 1300px ; height: 500px;">
 			      <div class="carousel-caption d-none d-md-block">
-				      
+
 				    </div>
 			    </div>
 			    <!-- End Carousel Items -->
@@ -85,8 +85,8 @@
 					  <a class="list-group-item list-group-item-action" href="#list-item-4">Gas System Control</a>
 					</div>
 				</div>
-			
-				<div class="col-9">	
+
+				<div class="col-9">
 					<div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
 						<div class="row" id="information">
 							<div class="col-4">
@@ -171,8 +171,8 @@
 					  <a class="list-group-item list-group-item-action" href="#list-item-8">Item8</a>
 					</div>
 				</div>
-			
-				<div class="col-9">	
+
+				<div class="col-9">
 					<div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
 						<div class="row" id="information">
 							<div class="col-4">
@@ -206,7 +206,7 @@
 							  	</p>
 						  	</div>
 					  	</div>
-						 
+
 			        </div>
 			    </div>
 		    </div>
@@ -217,7 +217,7 @@
 
 	<!-- End Service Page -->
 
-<?php include_once "views/html_footer.php" ?>
+include_once "includes/html_footer.php";
 
 </body>
 </html>

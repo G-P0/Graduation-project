@@ -1,0 +1,3 @@
+<?php
+$rootpath="/smarthome/backend";
+ ?>

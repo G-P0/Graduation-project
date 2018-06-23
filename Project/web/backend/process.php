@@ -2,13 +2,13 @@
 <html>
 	<head>
 		<title>Process</title>
-    <?php include_once "views/html_header.php"; ?>
+    <?php include_once "includes/html_header.php"; ?>
 
 	</head>
 	<body>
 	   <!-- start navbar -->
   <?php
-  include_once "views/navbar.php";
+  include_once "includes/navbar.php";
   ?>
   <!-- end navbar -->
 
@@ -29,8 +29,8 @@
 			    <div class="carousel-item active">
 			      <img class="d-block w-100 " src="resources/images/slider/c1.jpg" alt="First slide" style="width: 1300px ; height: 500px;" >
 			      <div class="carousel-caption d-none d-md-block">
-  				    
-				    </div> 
+
+				    </div>
 		      </div>
 			    <div class="carousel-item">
 			      <img class="d-block w-100 " src="resources/images/slider/c4.jpg" alt="Second slide" style="width: 1300px ; height: 500px;">
@@ -39,14 +39,14 @@
                 <div class="col-xl-9 mx-auto slide2">
                   <h1 >MAKE YOUR HOME THE SMARTEST ON THE BLOCK</h1>
                   <p>PERSONALIZE YOUR HOME TO BE MORE COMFORTABLE, CONVENIENT, AND SECURE.</p>
-                </div> 
+                </div>
               </div>
 				  </div>
 			    </div>
 			    <div class="carousel-item">
 			      <img class="d-block w-100 " src="resources/images/slider/c3.jpg" alt="Third slide" style="width: 1300px ; height: 500px;">
 			      <div class="carousel-caption d-none d-md-block">
-				      
+
 				    </div>
 			    </div>
 			    <!-- End Carousel Items -->
@@ -125,11 +125,11 @@
             <div class="row">
                 <div class="col-sm-3">
                     <h2 class="logo">
-                    	<a href="#"> 
+                    	<a href="#">
                 		  <img src="resources/images/logo1.png" alt="Logo" style="width:55px;">
 				          <span>.</span>
 				          <i class="fa fa-home fa-lg" style="color: #E3E3E3"></i>
-				          <span>.</span>    
+				          <span>.</span>
 				          <img src="resources/images/logo1.png" alt="Logo" style="width:55px;">
                      	</a>
                     </h2>

@@ -45,7 +45,7 @@ button{
 
 /*--- Start Navigation Bar --- */
 .navbar{
-  overflow: hidden;
+  /*overflow: hidden; how would the drop list will work then*/
   background-color: #333;
   top: 0;
   width: 100%;

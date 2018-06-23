@@ -1,17 +1,17 @@
-<?php 
+<?php
 
 // Check if the user input(message) came from a request(Form)
 
-if ($_SERVER['REQUEST_METHOD']=='POST') { 
+if ($_SERVER['REQUEST_METHOD']=='POST') {
 
-$user =filter_var( $_POST['username'], FILTER_SANITIZE_STRING ); 
-$mail =filter_var( $_POST['email'], FILTER_SANITIZE_EMAIL );	
-$mob  =filter_var( $_POST['mobile'], FILTER_SANITIZE_NUMBER_INT );	
+$user =filter_var( $_POST['username'], FILTER_SANITIZE_STRING );
+$mail =filter_var( $_POST['email'], FILTER_SANITIZE_EMAIL );
+$mob  =filter_var( $_POST['mobile'], FILTER_SANITIZE_NUMBER_INT );
 $msg  =filter_var( $_POST['message'], FILTER_SANITIZE_STRING );
 
 if($_SERVER[re])
 
-	// Creating an empty indexed array of errors  
+	// Creating an empty indexed array of errors
 	// or Creating a unique variable for each error
 	$userErr = $emailErr = $mobErr = $msgErr = '';
 
@@ -27,20 +27,20 @@ if (strlen($user)< 8) {
 		$msgErr= 'User Message must contain at least <strong>120</strong>  Charachters';
 
 	}
-	
+
 } /*else {
 	echo "You are not allowed to access this info";
 }
 */
 
 
-/* PHP Mail Function 
+/* PHP Mail Function
 
-	If There are no Errors (Error array or Error variables are empty), send the mail. 
+	If There are no Errors (Error array or Error variables are empty), send the mail.
 	Syntax :
 			mail(To, Subject, Message, Headers, Paramters)
 
-*/ 
+*/
 
 		$formErrors = array('userErr' , 'emailErr' , 'mobErr' , 'msgErr');
 
@@ -76,7 +76,7 @@ if (strlen($user)< 8) {
 	</head>
 	<body>
 		<!-- start navbar -->
-		<?php include_once "views/navbar.php";?>
+		<?php include_once "includes/navbar.php";?>
 		<!-- end navbar -->
 			<div class="container">
 
@@ -87,21 +87,21 @@ if (strlen($user)< 8) {
 
 
 					<!-- Username -->
-					<input class="form-control" type="text" name="username" placeholder="Type your username" 
+					<input class="form-control" type="text" name="username" placeholder="Type your username"
 					value="<?php if (isset($user)) {echo $user;} ?>" >
 
 					<i class="fa fa-user fa-fw"></i>
 
-					<?php if (!empty($userErr)) { 
-						
+					<?php if (!empty($userErr)) {
+
 						echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert"> ';
 
-						echo '<strong>Oh, Come on. </strong> '; 
-						echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'; 
+						echo '<strong>Oh, Come on. </strong> ';
+						echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
 						echo ' <span aria-hidden="true">&times;</span>';
 						echo '</button>';
 
-						echo $userErr; 
+						echo $userErr;
 
 						echo ' </div> ';
 					}
@@ -111,7 +111,7 @@ if (strlen($user)< 8) {
 					<input  class="form-control" type="email" name="email" placeholder="Please enter a valid E-mail" value="<?php if (isset($mail)) {echo $mail;} ?>">
 					<i class="fa fa-envelope fa-fw"></i>
 					<?php if (!empty($emailErr)) {
-						echo $emailErr;	
+						echo $emailErr;
 					} ?>
 
 					<!-- MobileNo -->
@@ -121,32 +121,32 @@ if (strlen($user)< 8) {
 					<?php
 					if (!empty($mobErr)) {
 
-						echo $mobErr;	
+						echo $mobErr;
 					}
-					
-					?>	
+
+					?>
 
 					<!-- Message -->
 					<textarea class="form-control" name="message" placeholder="Your Message! "></textarea>
 
 
-					<?php if (!empty($msgErr)) { 
-						
+					<?php if (!empty($msgErr)) {
+
 						echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert"> ';
 
-						echo '<strong>You gotta be kidding me , </strong> '; 
-						echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'; 
+						echo '<strong>You gotta be kidding me , </strong> ';
+						echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
 						echo ' <span aria-hidden="true">&times;</span>';
 						echo '</button>';
 
-						echo $msgErr; 
+						echo $msgErr;
 
 						echo ' </div> ';
 					}
 					?>
 
 
-					<?php 
+					<?php
 
 					if (isset($success)) {
 						echo $success;
@@ -160,6 +160,6 @@ if (strlen($user)< 8) {
 				</form>
 				<!-- End Form -->
 			</div>
-		<?php include_once "views/html_footer.php" ?>
+		include_once "includes/html_footer.php";
 	</body>
 	</html>

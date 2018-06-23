@@ -3,16 +3,16 @@
 <head>
     <title>Smart Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <?php include_once "views/html_header.php";?>
+    <?php include_once "includes/html_header.php";?>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:400,500" rel="stylesheet">
-    
+
 
 </head>
 <body>
  	<!-- start navbar -->
  	<?php
- 	include_once "views/navbar.php";
+ 	include_once "includes/navbar.php";
  	?>
  	<!-- end navbar -->
     <!-- Start Carousel Section -->
@@ -31,8 +31,8 @@
 			    <div class="carousel-item active">
 			      <img class="d-block w-100 " src="resources/images/slider/c1.jpg" alt="First slide" style="width: 1300px ; height: 500px;" >
 			      <div class="carousel-caption d-none d-md-block">
-  				    
-				    </div> 
+
+				    </div>
 		      </div>
 			    <div class="carousel-item">
 			      <img class="d-block w-100 " src="resources/images/slider/c4.jpg" alt="Second slide" style="width: 1300px ; height: 500px;">
@@ -41,14 +41,14 @@
                 <div class="col-xl-9 mx-auto slide2">
                   <h1 >MAKE YOUR HOME THE SMARTEST ON THE BLOCK</h1>
                   <p>PERSONALIZE YOUR HOME TO BE MORE COMFORTABLE, CONVENIENT, AND SECURE.</p>
-                </div> 
+                </div>
               </div>
 				  </div>
 			    </div>
 			    <div class="carousel-item">
 			      <img class="d-block w-100 " src="resources/images/slider/c3.jpg" alt="Third slide" style="width: 1300px ; height: 500px;">
 			      <div class="carousel-caption d-none d-md-block">
-				      
+
 				    </div>
 			    </div>
 			    <!-- End Carousel Items -->
@@ -67,24 +67,24 @@
 		</div>
 	</section>
 	<!-- End Carousel Section -->
-	 
+
 	<!-- Start Intro Section -->
 	<section class="intro">
 		<div class="container">
-			
+
 			<div class="row justify-content-between">
 				<div class="col-md-5 ">
 					<h2>About Us</h2>
 					<p class="lead">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat
 					<p class="lead">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat
-              
+
 					</p>
 					<div class="learnmore"><a href="views/aboutus.php" class="btn btn-outline-info ">Learn more!</a></div>
 				</div>
         <div class="col-1">
-          
+
         </div>
 				<div class="col-md-5">
 					<h2>Our Services</h2>
@@ -92,12 +92,12 @@
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat
 					<p class="lead">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat
-            
+
 					<div class="learnmore"><a href="views/services.php" class= "btn btn-outline-info ">Learn more!</a></div>
 				</div>
-				
+
 			</div>
-			
+
 		</div>
 	</section>
 	<!-- End Intro Section -->
@@ -112,7 +112,7 @@
 	                <img  style="width: 250px;height: 200px;" src="resources/images/sponsors/control.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -120,27 +120,27 @@
 	                <img  style="width: 250px;height: 200px;" src="resources/images/sponsors/comm.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
-	       
+
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
 	                <img style="width: 250px;height: 200px; " src="resources/images/sponsors/ieee.png" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
 	    </div>
 	    <div class="row">
-	        
+
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
 	                <img  style="width: 250px;height: 200px; margin-top: 20px;" src="resources/images/sponsors/robo.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	               
+
 	            </div>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -148,7 +148,7 @@
 	                <img style="width: 250px;height: 200px; margin-top: 20px;" src="resources/images/sponsors/fee.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	              
+
 	            </div>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -156,7 +156,7 @@
 	                <img style="width: 250px;height: 200px; margin-top: 20px;" src="resources/images/sponsors/men.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
         </div>
@@ -179,7 +179,7 @@
                     </q>
                 </blockquote>
                 <h4>Khalid Ahmed</h4>
-                
+
                 <ul>
                     <li class="active"></li>
                     <li ></li>
@@ -198,7 +198,7 @@
 					<img src="resources/images/whychooseus (1).jpg" style=" height: 500px">
 				</div>
 				<div class="col-6">
-					
+
 					<h2>Why Choose Us</h2>
 					<p >
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -210,10 +210,10 @@
 					<a  class="btn btn-primary" href="#">View More</a>
 					</div>
 				</div>
-				
+
 			</div>
 			</div>
-			
+
 	</section>
 	<!-- End Why Choose Us Section -->
 
@@ -270,8 +270,8 @@
 	</section>
 	<!-- End Newsteller -->
 
-<?php include_once "views/html_footer.php" ?>
-
+<?php include_once "includes/html_footer.php";
+ ?>
 
 </body>
 

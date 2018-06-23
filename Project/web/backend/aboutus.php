@@ -6,7 +6,7 @@
 </head>
 <body>
 	<!-- start navbar -->
-	<?php include_once "views/navbar.php";?>
+	<?php include_once "includes/navbar.php";?>
 	<!-- end navbar -->
 
 	<!-- Start Carousel Section -->
@@ -24,8 +24,8 @@
 					<div class="carousel-item active">
 						<img class="d-block w-100 " src="resources/images/slider/c1.jpg" alt="First slide" style="width: 1300px ; height: 500px;" >
 						<div class="carousel-caption d-none d-md-block">
-							
-						</div> 
+
+						</div>
 					</div>
 					<div class="carousel-item">
 						<img class="d-block w-100 " src="resources/images/slider/c4.jpg" alt="Second slide" style="width: 1300px ; height: 500px;">
@@ -34,14 +34,14 @@
 								<div class="col-xl-9 mx-auto slide2">
 									<h1 >MAKE YOUR HOME THE SMARTEST ON THE BLOCK</h1>
 									<p>PERSONALIZE YOUR HOME TO BE MORE COMFORTABLE, CONVENIENT, AND SECURE.</p>
-								</div> 
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="carousel-item">
 						<img class="d-block w-100 " src="resources/images/slider/c3.jpg" alt="Third slide" style="width: 1300px ; height: 500px;">
 						<div class="carousel-caption d-none d-md-block">
-							
+
 						</div>
 					</div>
 					<!-- End Carousel Items -->
@@ -110,13 +110,13 @@
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat
 							</p>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- End About Us Page -->
-	<?php include_once "views/html_footer.php" ?>
+	include_once "includes/html_footer.php";
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php 
-	include_once 'queryExecution.php';
+	include_once 'Query.php';
 	session_start();
 
 	class DataValidation

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+
 	<title>Registeration</title>
-	<?php include_once "views/html_header.php"; ?>
+	include_once "includes/html_header.php";
 
 </head>
 <body>
 	 	<!-- start navbar -->
  	<?php
- 	include_once "views/navbar.php";
+ 	include_once "includes/navbar.php";
  	?>
  	<!-- end navbar -->
 
@@ -23,7 +23,7 @@
 					<!-- Name -->
 					<div class="form-group">
 						<label for="inputName">Name</label>
-						<input type="text" class="form-control" placeholder="Enter your first and last name" name="name" required 
+						<input type="text" class="form-control" placeholder="Enter your first and last name" name="name" required
 						<?php echo "value='".@$_SESSION['data']['name']."'"; ?>
 						 >
 				  	</div>
@@ -33,14 +33,14 @@
 				  		<input type="text" class="form-control" placeholder="Enter your username" name="username" required
 				  		<?php echo "value='".@$_SESSION['data']['username']."'"; ?>
 				  		>
-				  		<?php 
-							if (isset($_SESSION['errors'])) 
+				  		<?php
+							if (isset($_SESSION['errors']))
 							{
-								if (@$_SESSION['errors']['username'] == 1) 
+								if (@$_SESSION['errors']['username'] == 1)
 								{
 									echo "<strong>Username cann't contain any spaces or special characters except _ </strong><br>";
 								}
-								elseif (@$_SESSION['errors']['username'] == 2) 
+								elseif (@$_SESSION['errors']['username'] == 2)
 								{
 									echo "<strong>This Username belongs to an existing account. Please try a different Username!</strong><br>";
 								}
@@ -53,10 +53,10 @@
 				  		<input type="text" class="form-control" placeholder="Enter your E-mail" name="email" required
 				  		<?php echo "value='".@$_SESSION['data']['email']."'"; ?>
 				  		>
-				  		<?php 
-							if (isset($_SESSION['errors'])) 
+				  		<?php
+							if (isset($_SESSION['errors']))
 							{
-								if (@$_SESSION['errors']['email'] == 1) 
+								if (@$_SESSION['errors']['email'] == 1)
 								{
 									echo "<strong>This Email belongs to an existing user. Please try a different Email or simply try to login!</strong><br>";
 								}
@@ -71,14 +71,14 @@
 	      						<small id="passwordHelpBlock" class="form-text text-muted">
 								  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
 								</small>
-								<?php 
-									if (isset($_SESSION['errors'])) 
+								<?php
+									if (isset($_SESSION['errors']))
 									{
-										if (@$_SESSION['errors']['password'] == 1) 
+										if (@$_SESSION['errors']['password'] == 1)
 										{
 											echo "<strong>Password must contain at least 8 characters!</strong><br>";
 										}
-										elseif (@$_SESSION['errors']['password'] == 2) 
+										elseif (@$_SESSION['errors']['password'] == 2)
 										{
 											echo "<strong>Password must contain both letters and characters!</strong><br>";
 										}
@@ -88,14 +88,14 @@
 						    <div class="col">
 						    	<label for="inputConfirmation">Confirm your password</label>
 	      						<input type="password" class="form-control" id="inputConfirmation" placeholder="Password" name="passwordconfirm" required>
-	      						<?php 
-									if (isset($_SESSION['errors'])) 
+	      						<?php
+									if (isset($_SESSION['errors']))
 									{
-										if (@$_SESSION['errors']['password'] == 3) 
+										if (@$_SESSION['errors']['password'] == 3)
 										{
 											echo "<strong>Mismatch of password confirmation. Please enter the same password twice </strong><br><br>";
-											
-										}	
+
+										}
 									}
 									unset($_SESSION['errors']);
 									unset($_SESSION['data']);
@@ -114,7 +114,7 @@
 						  		<?php echo "value='".@$_SESSION['data']['phone_no']."'"; ?>
 						  		>
 				    	</div>
-				    </div>	
+				    </div>
 				    <!-- Gender  -->
 				    <div class="form-group" style="margin-top: 20px; margin-bottom:0">
 				    	<label for="inputGender">Choose Gender</label>
@@ -129,7 +129,7 @@
 					</div>
 			    	<!--File and Register-->
 			    	<div class="custom-file">
-					  
+
 					</div>
 					<div class="form-group">
 						<div class="form-row">
@@ -142,11 +142,11 @@
 						    </div>
 					  	</div>
 				  	</div>
-				    	
+
 			</form>
 		</div>
 	</div>
-	<?php include_once "views/html_footer.php" ?>
+	include_once "includes/html_footer.php";
 
 </body>
 </html>

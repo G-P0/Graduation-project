@@ -2,14 +2,14 @@
 <html>
 <head>
     <title>Explore Us</title>
-	<?php include_once "views/html_header.php"; ?>
+	include_once "includes/html_header.php";
 
 
 </head>
 <body>
 	 	<!-- start navbar -->
  	<?php
- 	include_once "views/navbar.php";
+ 	include_once "includes/navbar.php";
  	?>
  	<!-- end navbar -->
 
@@ -66,7 +66,7 @@
 		</div>
 	</section>
 	<!-- End Home Section -->
-	 
+
 	<!-- Start About Us Section -->
 	<section class="aboutus" id="aboutus">
 		<div class="container-fluid">
@@ -90,7 +90,7 @@
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 					</p>
 				</div>
-				
+
 			</div>
 			<div class="row">
 				<div class="col-md-3 text-center">
@@ -101,7 +101,7 @@
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 					</p>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
@@ -110,7 +110,7 @@
 	<!-- Start Services Section -->
 	<section class="services" id="services">
 		<div class="container-fluid">
-			
+
 			<div class="sentences">
 				<div >
 					<h2>Do you need help with Home Automation? </h2>
@@ -132,7 +132,7 @@
 				<div>
 					<h3>Less Vulnerable</h3>
 					<p>
-						With hardwired security systems the homeowner is exposed to vulnerabilities such as power grids, phone lines, and internet connections. This means whenever there is a cut line or power outage a hardwired system becomes inoperable. Our smart home systems are so advanced that they are not vulnerable to such scenarios. A battery powered back-up keeps the system operating when power is lost. Our smart home systems are resistant to savvy criminals who can cut phone lines or power lines. 
+						With hardwired security systems the homeowner is exposed to vulnerabilities such as power grids, phone lines, and internet connections. This means whenever there is a cut line or power outage a hardwired system becomes inoperable. Our smart home systems are so advanced that they are not vulnerable to such scenarios. A battery powered back-up keeps the system operating when power is lost. Our smart home systems are resistant to savvy criminals who can cut phone lines or power lines.
 					</p>
 				</div>
 				<div>
@@ -144,14 +144,14 @@
 					</p>
 				</div>
 			</div>
-			
+
 		</div>
 	</section>
-	
+
 	<!-- Start Outdoor and Indoor Services -->
 	<div class="outdoors" id="outdoors">
 	<h1 class="text-center" style="margin-bottom: 20PX;margin-top: 100px; color: #5553ADE6;" id="out">OUTDOORS SERVICES</h1>
-	
+
 	<!-- Outdoors -->
 	<div class="container-fluid">
 	    <div  class="row">
@@ -160,7 +160,7 @@
 	                <img  style="width: 360px;height: 360px; " src="resources/images/yale-assure-sl-hand-800x533-c.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -168,27 +168,27 @@
 	                <img  style="width: 360px;height: 360px;" src="resources/images/images-of-gates-for-houses-amazing-best-25-gate-design-ideas-on-pinterest-designs-modern-home-18.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
-	       
+
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
 	                <img style="width: 360px;height: 360px;" src="resources/images/images (11).jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
 	    </div>
 	    <div class="row">
-	        
+
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
 	                <img  style="width: 360px;height: 360px; margin-top: 20px;" src="resources/images/BN-IV261_0610PT_P_20150609113726.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	               
+
 	            </div>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -196,7 +196,7 @@
 	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/download (1).jpg" alt="">
 	            </div>
 	            <div class="desc">
-	              
+
 	            </div>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -204,7 +204,7 @@
 	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/MyQ-Garage-in-use-LOW-RES-e1505262414303.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
         </div>
@@ -216,7 +216,7 @@
 	<!-- Indoors -->
 	<div class="indoors" id="indoors">
 	<h1 class="text-center" style="margin-bottom: 20PX;margin-top: 100px; color: #5553ADE6;" id="out">INDOORS SERVICES</h1>
-	
+
 	<div class="container-fluid">
 	    <div  class="row">
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -224,7 +224,7 @@
 	                <img  style="width: 360px;height: 360px;" src="resources/images/yale-assure-sl-hand-800x533-c.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -232,27 +232,27 @@
 	                <img  style="width: 360px;height: 360px;" src="resources/images/images-of-gates-for-houses-amazing-best-25-gate-design-ideas-on-pinterest-designs-modern-home-18.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
-	       
+
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
 	                <img style="width: 360px;height: 360px;" src="resources/images/images (11).jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
 	    </div>
 	    <div class="row">
-	        
+
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	            <div class="image">
 	                <img  style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/BN-IV261_0610PT_P_20150609113726.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	               
+
 	            </div>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -260,7 +260,7 @@
 	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/download (1).jpg" alt="">
 	            </div>
 	            <div class="desc">
-	              
+
 	            </div>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -268,14 +268,14 @@
 	                <img style="width: 360px;height: 360px;margin-top: 20px;" src="resources/images/MyQ-Garage-in-use-LOW-RES-e1505262414303.jpg" alt="">
 	            </div>
 	            <div class="desc">
-	                
+
 	            </div>
 	        </div>
         </div>
 
 	 </div>
 	 </div>
-	
+
 
 	<!-- End Otdoor and Idoor Services -->
 	<!-- End Services Section -->
@@ -288,7 +288,7 @@
 					<img src="resources/images/whychooseus (1).jpg" style=" height: 500px">
 				</div>
 				<div class="col-6">
-					
+
 					<h2>Why Choose Us</h2>
 					<p>
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -300,32 +300,32 @@
 					<a  class="btn btn-primary" href="#">View More</a>
 					</div>
 				</div>
-				
+
 			</div>
 			</div>
-			
+
 	</section>
 	<!-- End Why Choose Us Section -->
 
 	<!-- Start Contact Us -->
 	<section class="contactus" id="contactus" >
-		<d iv class="container">
+		<div class="container">
 			<div class="row">
 				<div class="col-md-6 text-left" >
-				  <h2 class="text-center">Feel Free and Don't hesitate Contacting Us!</h2> 
+				  <h2 class="text-center">Feel Free and Don't hesitate Contacting Us!</h2>
 				</div>
 				<div class="col-md-6 text-center">
-				  <a  class="btn btn-primary btn-lg" href="contact.php"> Contact Us!</a> 
+				  <a  class="btn btn-primary btn-lg" href="contact.php"> Contact Us!</a>
 				</div>
 			</div>
-			
+
 		</div>
 	</section>
 	<!-- End Contact Us-->
 
 
 
-<?php include_once "views/html_footer.php" ?>
+include_once "includes/html_footer.php";
 
 </body>
 

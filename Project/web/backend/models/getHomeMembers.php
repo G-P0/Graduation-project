@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zaian
- * Date: 6/22/2018
- * Time: 5:36 PM
- */
 
 include_once 'Query.php';
 include_once 'functions.php';
@@ -19,7 +13,8 @@ class getHomeMembers
         $this->getMembers();
     }
 
-    private function getMembers(){
+    private function getMembers()
+    {
         $query="select username ,name,register_date,privillage ,user_state from users where home_id=".$this->homeId;
         $result=Query::run($query);
 
@@ -28,7 +23,5 @@ class getHomeMembers
         {
             $_SESSION['membersInfo'][]=$row;
         }
-
     }
-
 }

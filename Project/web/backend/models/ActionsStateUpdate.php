@@ -1,5 +1,6 @@
 <?php 
 	include_once 'Query.php';
+	include_once 'functions.php';
 	session_start();
 	class ActionsStateUpdate
 	{
@@ -8,34 +9,14 @@
 		private $username;
 		function __construct()
 		{
-			$this->getData();
-			$this->getHomeId();
+			$this->actionsState = functions::getData();
 			$this->updateActionsState();
 		}
 
-		function getData()
-		{
-			//get post data
-			foreach ($_POST as $key => $value) 
-			{
-				if ($key == 'submit') 
-					continue;
-				$this->actionsState[$key] = $value;
-			}
-		}
-		function getHomeId()
-		{
-			//get home id from db
-			$this->username = $_SESSION['username'];
-			$query = "SELECT `home_id` 
-							FROM `users` 
-							WHERE `username` = '$this->username'";
-				$result  = Query::run($query);
-				$this->homeId = $result->fetch_assoc()['home_id'];
-		}
 		function updateActionsState()
 		{
-			
+			$this->homeId = functions::getHomeIdByUserName($_SESSION['username']);
+
 			foreach ($this->actionsState as $action => $state) 
 			{
 				$query = "SELECT `action_id` 
@@ -55,6 +36,7 @@
 			{
 				$_SESSION['actionsState'] = $this->actionsState;
 			}
+
 			else
 			{
 				//$_SESSION['errors']['update'] = 1;

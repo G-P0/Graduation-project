@@ -67,7 +67,7 @@
     <!-- Start Home Control -->
 			    <div class="homecontrol">
 			    	<div class="container">
-                        <form action="mnemTest.php" method="post">
+                        <form action="<?php echo $rootpath;?>/controllers/C_actions.php" method="post" enctype="multipart/form-data">
                             <!--Refresh  -->
                             <div class="card mt-4">
                                 <div class="card-body">
@@ -139,8 +139,8 @@
                                                         <td>Room1</td>
                                                         <td>
                                                             <label class="switch">
-                                                                <input type="checkbox">
-                                                                <span class="slider"></span>
+                                                         <input type="checkbox">
+                                                         <span class="slider"></span>
                                                             </label>
                                                         </td>
                                                     </tr>
@@ -148,7 +148,7 @@
                                                         <td>Room2</td>
                                                         <td>
                                                             <label class="switch">
-                                                                <input type="checkbox">
+                                                         <input type="checkbox">
                                                                 <span class="slider"></span>
                                                             </label>
                                                         </td>
@@ -233,7 +233,7 @@
                                                         <td>Living Room  : Air Conditioner</td>
                                                         <td>
                                                             <label class="switch">
-                                                                <input type="checkbox">
+                                                    <input type="checkbox">
                                                                 <span class="slider"></span>
                                                             </label>
                                                         </td>
@@ -242,7 +242,7 @@
                                                         <td>Living Room  : Heater</td>
                                                         <td>
                                                             <label class="switch">
-                                                                <input type="checkbox">
+                                                     <input type="checkbox">
                                                                 <span class="slider"></span>
                                                             </label>
                                                         </td>
@@ -312,7 +312,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <input type="submit" name="do-action" value="action">
+                            <button class="btn btn-success" name="submit" value="Update State">Update</button>
                         </form>
 			    	</div>
 			    </div>

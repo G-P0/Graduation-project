@@ -1,5 +1,6 @@
 <?php 
 	include_once 'Query.php';
+	include_once 'functions.php';
 	session_start();
 	class ActionsState
 	{
@@ -9,24 +10,13 @@
 		private $userPriv;
 		function __construct()
 		{
-			$this->getHomeId();
 			$this->getUserPriv();
 			$this->getActionsState();
-		}
-		function getHomeId()
-		{
-			//get home id from db
-			$this->username = $_SESSION['username'];
-			$query = "SELECT `home_id` 
-							FROM `users` 
-							WHERE `username` = '$this->username'";
-				$result  = Query::run($query);
-				$this->homeId = $result->fetch_assoc()['home_id'];
 		}
 
 		function getUserPriv()
 		{
-		//get user priv from db (0 => not assigned, 1 => norml, 2 => super)
+		//get user priv from db (0 => not assigned, 1 => norml, 2 => super, 3 => admin)
 			$this->username = $_SESSION['username'];
 			$query = "SELECT `privillage` 
 							FROM `users` 
@@ -37,6 +27,7 @@
 
 		function getActionsState()
 		{
+			$this->homeId = functions::getHomeIdByUserName($this->username);
 			$query = "SELECT `action_name`, `privillage`, `action_state`
 						FROM `action_data`, `actions` 
 						WHERE `home_id` = '$this->homeId' 
@@ -50,7 +41,6 @@
 				{
 					$this->actionsState[$row["action_name"]] = $row["action_state"];
 				}
-        		
     		}
 
     		$_SESSION['actionsState'] = $this->actionsState;

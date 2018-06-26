@@ -244,29 +244,27 @@
                                 </div>
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <input type="text" name="addmembername" class="form-control"
-                                                   placeholder="Type The Member's UserName">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="addsuperkey" class="form-control"
-                                                   placeholder="Type The Super Key">
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a class="btn btn-success" type="button" class="btn btn-primary"
-                                       style="color: #FFF;">Add</a>
-                                </div>
+                                <form action="<?php echo $rootpath;?>/controllers/C_actions.php" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <input type="text" name="memberName" class="form-control" placeholder="Type The Member's UserName">
+                                    </div>
+                                    <div class="form-group">
+                                            <input type="text" name="superKey" class="form-control" placeholder="Type The Super Key">
+                                    </div>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-success" name="submit" value="addMember">Add</button>
+                                    </div>
+                                </form>
+                                
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="list-privileges" role="tabpanel">
 
-                        <!-- Privileges -------------------------------------------->
+                        <!-- Privileges -->
                         <form action="<?php echo $rootpath;?>/controllers/C_actions.php" method="post" enctype="multipart/form-data">
                             <div class="card mb-3">
                                 <div class="card-header">
@@ -292,13 +290,13 @@
                                                 if ($privillage == 2)
                                                     //this action related to superuser
                                                     echo "checked = 'checked'";
-                                                echo "	></td>
-																				<td><input type='radio' name='$action' value='1'";
+                                                echo "	onchange='this.form.submit();'></td>
+															<td><input type='radio' name='$action' value='1'";
                                                 if ($privillage == 1)
                                                     //this action related to normal user
                                                     echo "checked = 'checked'";
-                                                echo "	></td>
-																			</tr> ";
+                                                echo "	onchange='this.form.submit();'></td>
+																	 ";
                                             }
 
                                         }
@@ -311,7 +309,7 @@
                                     Last Update - 5 Days ago
                                 </div>
                             </div>
-                            <input type="submit" name="submit" value="Update Privllage">
+                            <button class="btn btn-success" name="submit" value="Update Privllage">Update</button>
                         </form>
                     </div>
                 </div>

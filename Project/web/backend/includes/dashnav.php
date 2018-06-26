@@ -39,7 +39,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $rootpath; ?>/homecontrol.php">
+                    <a class="nav-link" href="<?php echo $rootpath; ?>/controllers/C_actions.php?getPage=homecontrol">
                         <i class="fa fa-cogs fa-lg"></i> Home Control
                     </a>
                 </li>

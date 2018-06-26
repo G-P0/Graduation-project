@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zaian
- * Date: 6/22/2018
- * Time: 3:06 PM
- */
 
 include_once 'Query.php';
 include_once 'functions.php';
@@ -13,7 +7,6 @@ class getHomeInfo
 {
 
     private $homeId;
-
 
     function __construct()
     {

@@ -1,6 +1,5 @@
 <?php 
-	
-	
+
 	class Register
 	{
 		private $attributes = array();

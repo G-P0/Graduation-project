@@ -1,5 +1,6 @@
 <?php 
 	include_once 'Query.php';
+	include_once 'functions.php';
 	session_start();
 	class ActionsPrivillageUpdate
 	{
@@ -8,34 +9,14 @@
 		private $username;
 		function __construct()
 		{
-			$this->getData();
-			$this->getHomeId();
+			$this->actionsPriv = functions::getData();
 			$this->updateActionsPriv();
 		}
 
-		function getData()
-		{
-			//get post data
-			foreach ($_POST as $key => $value) 
-			{
-				if ($key == 'submit') 
-					continue;
-				$this->actionsPriv[$key] = $value;
-			}
-		}
-		function getHomeId()
-		{
-			//get home id from db
-			$this->username = $_SESSION['username'];
-			$query = "SELECT `home_id` 
-							FROM `users` 
-							WHERE `username` = '$this->username'";
-				$result  = Query::run($query);
-				$this->home_id = $result->fetch_assoc()['home_id'];
-		}
 		function updateActionsPriv()
 		{
-			
+			$this->home_id = functions::getHomeIdByUserName($_SESSION['username']);
+
 			foreach ($this->actionsPriv as $action => $priv) 
 			{
 				$query = "SELECT `action_id` 

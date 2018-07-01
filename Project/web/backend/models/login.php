@@ -37,8 +37,7 @@
 			{
 				session_start();
 				$_SESSION['username'] = $this->user;
-				header("Location: ../index.php");
-				die();
+
 			}
 			else
 			{

@@ -9,6 +9,8 @@
 			{
 				include '../models/login.php';
 				new Login();
+                header("Location: ../index.php");
+                die();
 				
 			} 
 			catch (Exception $e) 

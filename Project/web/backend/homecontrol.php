@@ -1,3 +1,17 @@
+<?php
+session_start();
+include_once 'includes/paths.php';
+if (!isset($_SESSION['username'])) {
+    header("Location:$rootpath/");
+    die();
+}
+
+
+if (!isset($_SESSION['actionsState']['super_user'])&&!isset($_SESSION['actionsState']['normal_user']))
+{
+      header("Location:$rootpath/controllers/C_actions.php?getPage=homecontrol");
+}
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +37,7 @@
 <!-- Start Home Control -->
 <div class="homecontrol ">
     <div class="container ">
+
         <!--Refresh  -->
         <form action="<?php echo $rootpath; ?>/controllers/C_actions.php" method="post" enctype="multipart/form-data">
             <div class="card mt-4 bg-light">
@@ -59,311 +74,205 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Main Gate</td>
-                                    <td><a href="#" class="btn btn-primary" data-toggle="button">Gate</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Pool Cover</td>
-                                    <td>
-                                        <!-- Button Group of radio buttons -->
-                                        <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-danger active">
-                                                <input type="radio" name="Pooloption" value="OFF" id="option1"
-                                                       autocomplete="off" checked="true" mr-5>OFF
-                                            </label>
-                                            <label class="btn btn-success ">
-                                                <input type="radio" name="Pooloption" value="ON" id="option2"
-                                                       autocomplete="off">ON
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <?php
+                                if (isset($_SESSION['actionsState']['normal_user']['main_gate']) || isset($_SESSION['actionsState']['super_user']['main_gate'])):
+                                    ?>
+                                    <tr>
+                                        <td>main_gate</td>
+                                        <td>
+                                            <!-- Button Group of radio buttons -->
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-danger active">
+                                                    <input type="radio" name="main_gate" value="0" id="option1"
+                                                           autocomplete="off" mr-5
+                                                        <?php
+                                                        if (isset($_SESSION['actionsState']['super_user']['main_gate'])) {
+                                                            if (!$_SESSION['actionsState']['super_user']['main_gate'])
+                                                                echo "checked='true'";
+                                                        } else if (isset($_SESSION['actionsState']['normal_user']['main_gate'])) {
+                                                            if (!$_SESSION['actionsState']['normal_user']['main_gate'])
+                                                                echo "checked='true'";
+                                                        }
+
+                                                        ?>
+                                                    >OFF
+                                                </label>
+
+                                                <label class="btn btn-success ">
+                                                    <input type="radio" name="main_gate" value="1" id="option2"
+                                                           autocomplete="off"
+                                                        <?php
+                                                        if (isset($_SESSION['actionsState']['super_user']['main_gate'])) {
+                                                            if ($_SESSION['actionsState']['super_user']['main_gate'])
+                                                                echo "checked='true'";
+                                                        } else if (isset($_SESSION['actionsState']['normal_user']['main_gate'])) {
+                                                            if ($_SESSION['actionsState']['normal_user']['main_gate'])
+                                                                echo "checked='true'";
+                                                        }
+
+                                                        ?>
+                                                    >ON
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
+
+                                <?php
+                                if (isset($_SESSION['actionsState']['normal_user']['pool_cover'])):?>
+
+
+                                    <tr>
+                                        <td>Pool Cover</td>
+                                        <td>
+                                            <!-- Button Group of radio buttons -->
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-danger active">
+                                                    <input type="radio" name="pool_cover" value="0" id="option1"
+                                                           autocomplete="off" mr-5
+                                                        <?php if (!$_SESSION['actionsState']['normal_user']['pool_cover'])
+                                                            echo "checked='true'";
+                                                        ?>
+                                                    >OFF
+                                                </label>
+
+                                                <label class="btn btn-success ">
+                                                    <input type="radio" name="pool_cover" value="1" id="option2"
+                                                           autocomplete="off"
+                                                        <?php if ($_SESSION['actionsState']['normal_user']['pool_cover'])
+                                                            echo "checked='true'";
+                                                        ?>
+                                                    >ON
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <!-- Indoors -->
-                    <div class="card mt-3">
-                        <div class="card-header bg-dark text-white">
-                            <h6><i class="fa fa-home"></i> Indoors </h6>
-                        </div>
-                        <div class=" row card-body ">
-                            <div class="col-5">
-                                <span class="font-weight-bold font-italic text-secondary">Lights state Indicators</span>
-                                <table class="table mt-3 ">
-                                    <thead>
-                                    <tr>
-                                        <th>Service</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Room1</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="room1ligth" value="OFF" id=""
-                                                           autocomplete="off" checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="room1ligth" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Room2</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="room2ligth" value="OFF" id=""
-                                                           autocomplete="off" checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="room2ligth" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Room3</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="room3ligth" value="OFF" id=""
-                                                           autocomplete="off" checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="room3ligth" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Living Room</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="livingroomlight" value="OFF" id=""
-                                                           autocomplete="off" checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="livingroomlight" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kitchen</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="kitchenlight" value="OFF" id=""
-                                                           autocomplete="off" checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="kitchenlight" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                    <?php
+                    if (isset($_SESSION['actionsState']['normal_user'])):
+                        ?>
+                        <div class="card mt-3">
+                            <div class="card-header bg-dark text-white">
+                                <h6><i class="fa fa-home"></i> Indoors </h6>
                             </div>
-                            <div class="col-5">
-                                <span class="font-weight-bold font-italic text-secondary">Devices</span>
-                                <table class="table mt-3">
-                                    <thead>
-                                    <tr>
-                                        <th>Service</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Kitchen : Refrigerator</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="refrigerator" value="OFF" id=""
-                                                           autocomplete="off" checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="refrigerator" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kitchen : Microwave</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="microwave" value="OFF" id=""
-                                                           autocomplete="off" checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="microwave" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kitchen : Water valve</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="wvalve" value="OFF" id=""
-                                                           autocomplete="off"
-                                                           checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="wvalve" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Living Room : LED Screen</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="screen" value="OFF" id=""
-                                                           autocomplete="off"
-                                                           checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="screen" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Living Room : Air Conditioner</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="ac" value="OFF" id="" autocomplete="off"
-                                                           checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="ac" value="ON" id="" autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Living Room : Heater</td>
-                                        <td>
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-danger active">
-                                                    <input type="radio" name="heater" value="OFF" id=""
-                                                           autocomplete="off"
-                                                           checked="true">OFF
-                                                </label>
-                                                <label class="btn btn-success ">
-                                                    <input type="radio" name="heater" value="ON" id=""
-                                                           autocomplete="off">ON
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            <div class=" row card-body ">
+                                <div class="col-5">
+                                    <span class="font-weight-bold font-italic text-secondary">Lights state Indicators</span>
+                                    <table class="table mt-3 ">
+                                        <thead>
+                                        <tr>
+                                            <th>Service</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                        foreach ($_SESSION['actionsState']['normal_user'] as $action => $value):
+                                            if ($action == "main_gate")
+                                                continue;
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $action ?></td>
+                                                <td>
+                                                    <div class="btn-group" data-toggle="buttons">
+                                                        <label class="btn btn-danger active">
+                                                            <input type="radio" name="<?php echo $action ?>" value="0"
+                                                                   id=""
+                                                                   autocomplete="off"
+                                                                <?php if (!$_SESSION['actionsState']['normal_user'][$action])
+                                                                    echo "checked='true'"
+                                                                ?>
+                                                            >OFF
+                                                        </label>
+                                                        <label class="btn btn-success ">
+                                                            <input type="radio" name="<?php echo $action ?>" value="1"
+                                                                   id=""
+                                                                   autocomplete="off"
+                                                                <?php if ($_SESSION['actionsState']['normal_user'][$action])
+                                                                    echo "checked='true'"
+                                                                ?>
+                                                            >ON
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                        endforeach;
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <!--<div class="col-4">
-                                <span>Status</span>
-
-                            </div>-->
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
+
             <!--Second Card - Super User -->
-            <div class="card mt-5 border-danger mb-5  bg-light">
-                <div class="card-header bg-danger text-white">
-                    <h5><i class="fa fa-user-secret"></i> Super User </h5>
+            <?php if (isset($_SESSION['actionsState']['super_user'])): ?>
+                <div class="card mt-5 border-danger mb-5  bg-light">
+                    <div class="card-header bg-danger text-white">
+                        <h5><i class="fa fa-user-secret"></i> Super User </h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <?php
+                            foreach ($_SESSION['actionsState']['super_user'] as $action => $value):
+                                if ($action == "main_gate")
+                                    continue;
+                                ?>
+                                <tr>
+                                    <td><?php echo $action ?></td>
+                                    <td>
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-danger active">
+                                                <input type="radio" name="<?php echo $action ?>" value="0" id=""
+                                                       autocomplete="off"
+                                                    <?php if (!$_SESSION['actionsState']['super_user'][$action])
+                                                        echo "checked='true'"
+                                                    ?>
+                                                >OFF
+                                            </label>
+                                            <label class="btn btn-success ">
+                                                <input type="radio" name="<?php echo $action ?>" value="1" id=""
+                                                       autocomplete="off"
+                                                    <?php if ($_SESSION['actionsState']['super_user'][$action])
+                                                        echo "checked='true'"
+                                                    ?>
+                                                >ON
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php
+                            endforeach;
+                            ?>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+            <?php endif;
+            unset($_SESSION['actionsState']);
+            ?>
+            <div class="card mt-4 bg-light">
                 <div class="card-body">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Alarm System</td>
-                            <td>
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-danger active">
-                                        <input type="radio" name="alarmsystem" value="OFF" id="" autocomplete="off"
-                                               checked="true">OFF
-                                    </label>
-                                    <label class="btn btn-success ">
-                                        <input type="radio" name="alarmsystem" value="ON" id="" autocomplete="off">ON
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Main Stream Power (Gas)</td>
-                            <td>
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-danger active">
-                                        <input type="radio" name="mainstreamgas" value="OFF" id="" autocomplete="off"
-                                               checked="true">OFF
-                                    </label>
-                                    <label class="btn btn-success ">
-                                        <input type="radio" name="mainstreamgas" value="ON" id="" autocomplete="off">ON
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Main Stream Power (Light)</td>
-                            <td>
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-danger active">
-                                        <input type="radio" name="mainstreamlight" value="OFF" id="" autocomplete="off"
-                                               checked="true">OFF
-                                    </label>
-                                    <label class="btn btn-success ">
-                                        <input type="radio" name="mainstreamlight" value="ON" id="" autocomplete="off">ON
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Main Stream Power (Current)</td>
-                            <td>
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-danger active">
-                                        <input type="radio" name="mainstreamcurrent" value="OFF" id=""
-                                               autocomplete="off"
-                                               checked="true">OFF
-                                    </label>
-                                    <label class="btn btn-success ">
-                                        <input type="radio" name="mainstreamcurrent" value="ON" id=""
-                                               autocomplete="off">ON
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="text-center">
+                        <input class="btn btn-warning text-center text-light" type="submit" name="submit" value="Update State">
+                    </div>
                 </div>
             </div>
         </form>
@@ -372,10 +281,6 @@
 <!-- End Home Control -->
 
 
-<!--Required Scripting Libraries -->
-<!-- <script src="script/smooth-scroll.min.js"></script> -->
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+<?php include_once 'includes/html_footer.php';?>
 </body>
 </html>

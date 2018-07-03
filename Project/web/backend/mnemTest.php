@@ -1,8 +1,7 @@
 <?php
 
-if (isset($_POST))
-{
-    print_r($_POST);
-}
+$arr=['vale','sca','csacas'];
+
+print_r(($arr));
 
 ?>

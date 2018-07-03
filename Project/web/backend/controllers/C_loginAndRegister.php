@@ -1,4 +1,9 @@
-<?php 
+<?php
+session_start();
+include_once "../includes/paths.php";
+
+
+
 	if (isset($_POST['submit'])) 
 	{
 		
@@ -36,4 +41,9 @@
 				
 		}
 	}
+
+if (!isset($_SESSION['username'])) {
+    header("Location:$rootpath/");
+    die();
+}
 ?>

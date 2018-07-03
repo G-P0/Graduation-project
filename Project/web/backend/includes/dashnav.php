@@ -33,13 +33,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $rootpath; ?>/controllers/C_actions.php?getPage=dashboard">
+                    <a class="nav-link" href="<?php echo $rootpath; ?>/dashboard.php">
                         <i class="fa fa-clipboard fa-lg"></i> Dashboard
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $rootpath; ?>/controllers/C_actions.php?getPage=homecontrol">
+                    <a class="nav-link" href="<?php echo $rootpath; ?>/homecontrol.php">
                         <i class="fa fa-cogs fa-lg"></i> Home Control
                     </a>
                 </li>

@@ -9,7 +9,7 @@
 			$result = self::$link->query($sql);
 			if (self::$link->error) 
 			{
-				throw new Exception($link->error);
+				throw new Exception(self::$link->error);
 			}
 			return $result;
 		}

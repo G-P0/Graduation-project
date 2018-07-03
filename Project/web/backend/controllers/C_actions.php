@@ -1,6 +1,12 @@
 <?php
+session_start();
 include_once "../includes/paths.php";
-if (isset($_POST['submit'])) 
+if (!isset($_SESSION['username'])) {
+    header("Location:$rootpath/");
+    die();
+}
+
+if (isset($_POST['submit']))
 {
 
     if (isset($_POST['submit']) && $_POST['submit'] == "Show Actions Privilege") 
@@ -53,10 +59,11 @@ if (isset($_POST['submit']))
     {
         try 
         {
+
             include '../models/ActionsStateUpdate.php';
             new ActionsStateUpdate();
-            header("Location: ../homecontrol.php");
-            die();
+            header("Location: $rootpath/homecontrol.php");
+
         } 
         catch (Exception $e) 
         {
@@ -118,6 +125,7 @@ elseif (isset($_GET['getPage']))
     {
         try 
         {
+
             include '../models/ActionsState.php';
             new ActionsState();
             header("Location: ../homecontrol.php");

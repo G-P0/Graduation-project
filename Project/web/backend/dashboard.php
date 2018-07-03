@@ -1,5 +1,12 @@
-<?php    session_start();
-    include_once "includes/paths.php";
+<?php
+session_start();
+include_once 'includes/paths.php';
+if (!isset($_SESSION['username'])) {
+    header("Location:$rootpath/");
+    die();
+}
+if (!isset($_SESSION['membersInfo']))
+    header("Location:$rootpath/controllers/C_action.php?getPage=dashboard");
 ?>
 <!DOCTYPE html>
 <html>

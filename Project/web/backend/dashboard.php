@@ -207,11 +207,24 @@ if (!isset($_SESSION['membersInfo']))
                                                 }
                                                ?></td>
                                            <td>
-                                               <a class="btn btn-primary btn-sm" role="button">
-                                                   <i class="fa fa-edit"></i> Edit
+                                               <form action="<?php echo $rootpath;?>/controllers/C_actions.php" method="post">
+                                                    <input type="submit" value="Edit" class="btn btn-primary btn-sm" name="toggle-privillage">
+                                                    <input type="text" hidden name="username" value="<?php echo $val['username']?>">
+                                                    <input type="text" hidden name="privillage" value="<?php echo $val['privillage']?>">
+                                                </form>
                                                </a>
                                            </td>
-                                           <td><?php echo $val['user_state']?></td>
+                                           <td><?php
+                                                switch ($val['user_state'])
+                                                {
+                                                    case 0:
+                                                    echo "not active";
+                                                    break;
+                                                    case 1:
+                                                    echo "active";
+                                                    break;
+                                                }
+                                               ?></td>
                                            <td>
                                                 <form action="<?php echo $rootpath;?>/controllers/C_actions.php" method="post">
                                                     <input type="submit" value="Delete" class="btn btn-danger btn-sm" name="delete-member">

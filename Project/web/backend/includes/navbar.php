@@ -99,9 +99,7 @@
               {
                 echo"<strong style = 'color:red'>Welcome ".@$_SESSION['username']."</strong>";
             ?>
-              <a href="<?php echo $rootpath; ?>/logout.php" class="btn btn-primary btn-lg">Logout</a>  <br><br>
-              <a href="<?php echo $rootpath; ?>/home.php" class="btn btn-success btn-lg">Home Control</a>
-              <a href="<?php echo $rootpath; ?>/controllers/C_actions.php?getPage=dashboard" class="btn btn-success btn-lg">action</a>
+              <a href="<?php echo $rootpath; ?>/logout.php" class="btn btn-primary btn-lg">Logout</a>                 <a href="<?php echo $rootpath; ?>/controllers/C_actions.php?getPage=dashboard" class="btn btn-success btn-lg">Control</a>
 
             <?php
               }

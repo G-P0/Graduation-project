@@ -1,3 +1,3 @@
 <?php
-$rootpath="/smarthome/backend";
+$rootpath="\ZGit\Graduation-project\Project\web\backend";
  ?>

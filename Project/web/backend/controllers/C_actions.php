@@ -101,6 +101,22 @@ else if (isset($_POST['delete-member']) && $_POST['delete-member'] == "Delete")
     }
 }
 
+else if (isset($_POST['toggle-privillage']) && $_POST['toggle-privillage'] == "Edit") 
+{
+    try
+    {
+        include_once '../models/privillageToggling.php';
+        new PrivillageToggling($_POST['username'], $_POST['privillage']);
+        header("Location:" . $rootpath . "/controllers/C_actions.php?getPage=dashboard");
+        die();
+
+    }
+    catch (Exception $e)
+    {
+        echo $e->getMessage();
+    }
+}
+
 elseif (isset($_GET['getPage'])) 
 {
     if ($_GET['getPage'] == "dashboard") 

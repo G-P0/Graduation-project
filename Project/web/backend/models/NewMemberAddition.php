@@ -2,7 +2,7 @@
 
 	include_once 'Query.php';
 	include_once 'functions.php';
-	session_start();
+	//session_start();
 	//get data 
 	//confirm admin and superkery
 	//confirm member name

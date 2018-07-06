@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include_once 'includes/paths.php';
 if (!isset($_SESSION['username'])) {
     header("Location:$rootpath/");
@@ -62,7 +64,7 @@ if (!isset($_SESSION['membersInfo']))
                                 <div class="card-body">
                                     <i class="fa fa-users fa-3x"></i>
                                     <h4 class="card-title">Home Members </h4>
-                                    <p class="card-text"><?php echo count($_SESSION['membersInfo'])?></p>
+                                    <p class="card-text"><?php echo count($_SESSION['membersInfo']) ?></p>
                                 </div>
                             </div>
                             <div class="card bg-primary text-white">
@@ -93,35 +95,35 @@ if (!isset($_SESSION['membersInfo']))
                                             <li class="fa fa-unlock fa-fw"></li>
                                             Username
                                         </th>
-                                        <td>: <?php  echo $_SESSION['homeInfo']['username']?></td>
+                                        <td>: <?php echo $_SESSION['homeInfo']['username'] ?></td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <li class="fa fa-envelope fa-fw"></li>
                                             Email
                                         </th>
-                                        <td>: <?php  echo $_SESSION['homeInfo']['email']?></td>
+                                        <td>: <?php echo $_SESSION['homeInfo']['email'] ?></td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <li class="fa fa-user fa-fw"></li>
                                             Full Name
                                         </th>
-                                        <td>: <?php  echo $_SESSION['homeInfo']['name']?></td>
+                                        <td>: <?php echo $_SESSION['homeInfo']['name'] ?></td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <li class="fa fa-book fa-fw"></li>
                                             Registered Date
                                         </th>
-                                        <td>: <?php  echo $_SESSION['homeInfo']['register_date']?></td>
+                                        <td>: <?php echo $_SESSION['homeInfo']['register_date'] ?></td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <li class="fa fa-map-marker fa-fw"></li>
                                             Home Address
                                         </th>
-                                        <td>: <?php  echo $_SESSION['homeInfo']['address']?></td>
+                                        <td>: <?php echo $_SESSION['homeInfo']['address'] ?></td>
                                     </tr>
 
                                     </tbody>
@@ -138,11 +140,11 @@ if (!isset($_SESSION['membersInfo']))
                                     <tbody>
                                     <tr>
                                         <th> Home Name</th>
-                                        <td> <?php  echo $_SESSION['homeInfo']['home_name']?></td>
+                                        <td> <?php echo $_SESSION['homeInfo']['home_name'] ?></td>
                                     </tr>
                                     <tr>
                                         <th> Super Key</th>
-                                        <td><?php  echo $_SESSION['homeInfo']['super_key']?></td>
+                                        <td><?php echo $_SESSION['homeInfo']['super_key'] ?></td>
                                         <td>
                                             <a href="#" class="btn btn-sm btn-primary"> Edit</a>
                                         </td>
@@ -150,7 +152,7 @@ if (!isset($_SESSION['membersInfo']))
                                     </tr>
                                     <tr>
                                         <th> Public Key</th>
-                                        <td><?php  echo $_SESSION['homeInfo']['public_key']?></td>
+                                        <td><?php echo $_SESSION['homeInfo']['public_key'] ?></td>
                                         <td>
                                             <a href="#" class="btn btn-sm btn-primary"> Edit</a>
                                         </td>
@@ -182,58 +184,63 @@ if (!isset($_SESSION['membersInfo']))
                                     </tr>
                                     </thead>
                                     <tbody>
-                                   <?php foreach ($_SESSION['membersInfo'] as $no => $val):?>
+                                    <?php foreach ($_SESSION['membersInfo'] as $no => $val): ?>
 
-                                       <tr>
-                                           <th scope="row"><?php echo $no+1 ?></th>
-                                           <td><?php echo $val['name']?></td>
-                                           <td><?php echo $val['register_date']?></td>
-                                           <td><?php
-                                                switch ($val['privillage'])
-                                                {
+                                        <tr>
+                                            <th scope="row"><?php echo $no + 1 ?></th>
+                                            <td><?php echo $val['name'] ?></td>
+                                            <td><?php echo $val['register_date'] ?></td>
+                                            <td><?php
+                                                switch ($val['privillage']) {
                                                     case 0:
-                                                    echo "not active";
-                                                    break;
+                                                        echo "not active";
+                                                        break;
                                                     case 1:
-                                                    echo "normal user";
-                                                    break;
+                                                        echo "normal user";
+                                                        break;
                                                     case 2:
-                                                    echo "super user";
-                                                    break;
+                                                        echo "super user";
+                                                        break;
                                                     case 3:
-                                                    echo "admin";
-                                                    break;
+                                                        echo "admin";
+                                                        break;
 
                                                 }
-                                               ?></td>
-                                           <td>
-                                               <form action="<?php echo $rootpath;?>/controllers/C_actions.php" method="post">
-                                                    <input type="submit" value="Edit" class="btn btn-primary btn-sm" name="toggle-privillage">
-                                                    <input type="text" hidden name="username" value="<?php echo $val['username']?>">
-                                                    <input type="text" hidden name="privillage" value="<?php echo $val['privillage']?>">
+                                                ?></td>
+                                            <td>
+                                                <form action="<?php echo $rootpath; ?>/controllers/C_actions.php"
+                                                      method="post">
+                                                    <input type="submit" value="Edit" class="btn btn-primary btn-sm"
+                                                           name="toggle-privillage">
+                                                    <input type="text" hidden name="username"
+                                                           value="<?php echo $val['username'] ?>">
+                                                    <input type="text" hidden name="privillage"
+                                                           value="<?php echo $val['privillage'] ?>">
                                                 </form>
-                                               </a>
-                                           </td>
-                                           <td><?php
-                                                switch ($val['user_state'])
-                                                {
+                                                </a>
+                                            </td>
+                                            <td><?php
+                                                switch ($val['user_state']) {
                                                     case 0:
-                                                    echo "not active";
-                                                    break;
+                                                        echo "not active";
+                                                        break;
                                                     case 1:
-                                                    echo "active";
-                                                    break;
+                                                        echo "active";
+                                                        break;
                                                 }
-                                               ?></td>
-                                           <td>
-                                                <form action="<?php echo $rootpath;?>/controllers/C_actions.php" method="post">
-                                                    <input type="submit" value="Delete" class="btn btn-danger btn-sm" name="delete-member">
-                                                    <input type="text" hidden name="username" value="<?php echo $val['username']?>">
+                                                ?></td>
+                                            <td>
+                                                <form action="<?php echo $rootpath; ?>/controllers/C_actions.php"
+                                                      method="post">
+                                                    <input type="submit" value="Delete" class="btn btn-danger btn-sm"
+                                                           name="delete-member">
+                                                    <input type="text" hidden name="username"
+                                                           value="<?php echo $val['username'] ?>">
                                                 </form>
-                                           </td>
-                                       </tr>
+                                            </td>
+                                        </tr>
 
-                                    <?php endforeach;?>
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                                 <div>
@@ -264,28 +271,32 @@ if (!isset($_SESSION['membersInfo']))
                                 </div>
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                <form action="<?php echo $rootpath;?>/controllers/C_actions.php" method="post" enctype="multipart/form-data">
-                                    <div class="form-group">
-                                        <input type="text" name="memberName" class="form-control" placeholder="Type The Member's UserName">
-                                    </div>
-                                    <div class="form-group">
-                                            <input type="text" name="superKey" class="form-control" placeholder="Type The Super Key">
-                                    </div>
-                                    </div>
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button class="btn btn-success" name="submit" value="addMember">Add</button>
-                                    </div>
+                                    <form action="<?php echo $rootpath; ?>/controllers/C_actions.php" method="post"
+                                          enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <input type="text" name="memberName" class="form-control"
+                                                   placeholder="Type The Member's UserName">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="superKey" class="form-control"
+                                                   placeholder="Type The Super Key">
+                                        </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button class="btn btn-success" name="submit" value="addMember">Add</button>
+                                </div>
                                 </form>
-                                
+
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="list-privileges" role="tabpanel">
 
                         <!-- Privileges -->
-                        <form action="<?php echo $rootpath;?>/controllers/C_actions.php" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo $rootpath; ?>/controllers/C_actions.php" method="post"
+                              enctype="multipart/form-data">
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <h5><i class="fa fa-user-secret"></i> Set User Privileges</h5>

@@ -91,4 +91,29 @@ class functions
         return $array;
     }
 
+
+    public  static function send_data($array)
+    {
+        unset($array['submit']);
+        $url = '192.168.43.29/body';
+
+//Initiate .
+        $ch = curl_init($url);
+//The JSON data.
+//Encode the array into JSON.
+        $jsonDataEncoded = json_encode($array);
+
+//Tell cURL that we want to send a POST request.
+        curl_setopt($ch, CURLOPT_POST, 1);
+
+//Attach our encoded JSON string to the POST fields.
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+
+//Set the content type to application/json
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+//Execute the request
+        $result = curl_exec($ch);
+    }
+
 }

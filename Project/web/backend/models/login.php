@@ -33,12 +33,13 @@
 
 			$result  = Query::run($query);
 			$numrows = $result->num_rows;
-			if ($numrows == 1)
-			{
-				session_start();
-				$_SESSION['username'] = $this->user;
+			if ($numrows == 1) {
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+                $_SESSION['username'] = $this->user;
 
-			}
+            }
 			else
 			{
 				//$_SESSION['errors']['login_err'] = 1;

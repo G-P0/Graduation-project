@@ -25,13 +25,14 @@
 			//echo $query;
 			//die();
 			$result = Query::run($query);
-			if ($result)
-			{
-				session_start();
-				$_SESSION['username'] = $this->username;
-				header("Location: ../index.php");
-				die();
-			}
+			if ($result) {
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+                $_SESSION['username'] = $this->username;
+                header("Location: ../index.php");
+                die();
+            }
 			else
 			{
 				//$_SESSION['errors']['register'] = 1;

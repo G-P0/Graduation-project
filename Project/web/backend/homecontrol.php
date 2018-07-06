@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include_once 'includes/paths.php';
 if (!isset($_SESSION['username'])) {
     header("Location:$rootpath/");
@@ -7,11 +9,10 @@ if (!isset($_SESSION['username'])) {
 }
 
 
-if (!isset($_SESSION['actionsState']['super_user'])&&!isset($_SESSION['actionsState']['normal_user']))
-{
-      header("Location:$rootpath/controllers/C_actions.php?getPage=homecontrol");
+if (!isset($_SESSION['actionsState']['super_user']) && !isset($_SESSION['actionsState']['normal_user'])) {
+    header("Location:$rootpath/controllers/C_actions.php?getPage=homecontrol");
 }
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,7 +174,7 @@ if (!isset($_SESSION['actionsState']['super_user'])&&!isset($_SESSION['actionsSt
                                         <tbody>
                                         <?php
                                         foreach ($_SESSION['actionsState']['normal_user'] as $action => $value):
-                                            if ($action == "main_gate")
+                                            if ($action == "main_gate" || $action =="pool_cover")
                                                 continue;
                                             ?>
                                             <tr>
@@ -271,7 +272,8 @@ if (!isset($_SESSION['actionsState']['super_user'])&&!isset($_SESSION['actionsSt
             <div class="card mt-4 bg-light">
                 <div class="card-body">
                     <div class="text-center">
-                        <input class="btn btn-warning text-center text-light" type="submit" name="submit" value="Update State">
+                        <input class="btn btn-warning text-center text-light" type="submit" name="submit"
+                               value="Update State">
                     </div>
                 </div>
             </div>
@@ -281,6 +283,6 @@ if (!isset($_SESSION['actionsState']['super_user'])&&!isset($_SESSION['actionsSt
 <!-- End Home Control -->
 
 
-<?php include_once 'includes/html_footer.php';?>
+<?php include_once 'includes/html_footer.php'; ?>
 </body>
 </html>

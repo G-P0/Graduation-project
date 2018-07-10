@@ -6,7 +6,7 @@
  */ 
 #include "micro_config.h"
 
-void x (void){
+void xy (void){
 	DDRA&=~(1<<3);
 	DDRD|=(1<<2);
 	PORTD|=(1<<2);

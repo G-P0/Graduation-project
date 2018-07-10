@@ -44,8 +44,8 @@ uint8_t KeyPad_getPressedKey(void){
 	#else
 	#if ( 1 == KEYPAD_UPPER_PORT_PINS)
 	//setting the upper pin port as input
-	KEYPAD_PORT_DIR &= ~( 0xf4 );
-	return KeyPad_4x4_withIC74922 ( (((KEYPAD_PORT_IN & 0xf0))>>4) + 1 );
+	KEYPAD_PORT_DIR &= ~( 0xf0 );
+	return KeyPad_4x4_withIC74922 ( (((KEYPAD_PORT_IN))>>4) + 1 );
 	
 	#else
 	//write code for lower pins here

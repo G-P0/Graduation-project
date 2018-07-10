@@ -16,7 +16,8 @@
 #include "headers/EEPROM.h"
 #include "headers/motors.h"
 #include "headers/ADCFunc.h"
-#include "headers/uart.h"
+#include "headers/pins.h"
+#include "headers/recv.h"
 
 union{
 	uint8_t val8;
@@ -26,6 +27,10 @@ union{
 uint8_t sREG;
 char psswrd[5];
 char GATE_PASSWORD[PASS_LEN+1];
+int old_action=0;
+int x;
+int action;
+char dummy;
 uint8_t static passItr=0; //password iterator
 
 
@@ -38,71 +43,54 @@ int main(void)
 	// disable jtag protocol
 	MCUCSR = (1<<JTD);
 	MCUCSR = (1<<JTD);
+	
 	// set interrupts for INT2
-	sei();
+	LCD_init();
+	LCD_clearScreen();
+	LCD_displayString("start int2");
+	_delay_ms(500);
 	SET_BIT(GICR,INT2);
 	SET_BIT(MCUCSR,ISC2);
+	LCD_clearScreen();
+	LCD_displayString("start int0");
+	_delay_ms(500);
+	//set interrupt for INT0
+	SET_BIT(GICR,INT0);
+	SET_BIT(MCUCR,ISC00);
+	SET_BIT(MCUCR,ISC01);
+	//clear INT0 flag by setting it to 1
+	SET_BIT(GIFR,INTF0);
+	sei();
 	
+	//receive data
+	recv_init();
+	//motor init
+	Timer1_Fast_PWM_init();
 	// write default password to EEPROM
 	EEPROM_WriteNByte(GATE_PASSWORD_ADDRESS,(uint8_t*)default_pass,PASS_LEN);
 	
-	LCD_init();
-	Timer1_Fast_PWM_init();
 	_delay_ms(100);
-
-	SET_BIT(DDRB,PB0);
-	SET_BIT(PORTB,PB0);
+	//set pins to out high for off
+	init_pins();
 	
-
 	while (1)
 	{
-		LCD_displayStringRowColumn(1,2,"temp : ");
-		LCD_goToRowColumn(1,8);
+		LCD_clearScreen();
+		LCD_displayStringRowColumn(1,0,"temp: ");
 		LCD_intgerToString((int)get_temperture());
-		LCD_intgerToString((int)get_LDR());
-		if(get_LDR()<100)
+		LCD_displayStringRowColumn(1,8,"OL:");
+		x=(int)get_LDR();
+		LCD_intgerToString(x);
+		if(x>100)
 		{
-			CLEAR_BIT(PORTB,PB0);	
-		}else{
+			CLEAR_BIT(PORTB,PB0);
+			}else{
 			SET_BIT(PORTB,PB0);
 		}
-		_delay_ms(3000);
-			
+		_delay_ms(1000);
 	}
 
 	
-
-
-	
-	
-	/*
-	while (1)
-	{
-	LCD_clearScreen();
-	LCD_displayString("check out lights");
-	//	 function of out door light
-	
-	ADCSRA|=(1<<6);
-	_delay_ms(500);
-	adc_out=ADCL;
-	adc_out+=((ADCH|0x0000)<<8);
-	if(adc_out<100)
-	PORTD&=~(1<<2);
-	else
-	PORTD|=(1<<2);
-	_delay_ms(3000);
-	
-	LCD_clearScreen();
-	LCD_displayString("temp is : ");
-	LCD_intgerToString((int)get_temperture());
-	_delay_ms(3000);
-	
-	
-	
-	
-	} // end the main while loop
-
-	*/
 } // end main
 
 ISR (INT2_vect)
@@ -112,20 +100,21 @@ ISR (INT2_vect)
 	psswrd[passItr+1]='\0';
 	LCD_displayStringRowColumn(0,10,psswrd);
 	passItr++;
-	
+
 	if ( passItr >= PASS_LEN)
 	{
 		passItr=0;
-		
+
 		_delay_ms(500);
 		LCD_clearScreen();
 		EEPROM_readNByte( GATE_PASSWORD_ADDRESS, (uint8_t *) GATE_PASSWORD, PASS_LEN);
 		if (!strcmp(psswrd,GATE_PASSWORD))
 		{
 			LCD_displayString("gate opens now");
-			Timer1_Fast_PWM_rotate(SERVO_DEG_180);
+			main_gate(SERVO_DEG_180);
 			_delay_ms(5000);
-			Timer1_Fast_PWM_stop();
+			main_gate(SERVO_DEG_0);
+
 		}
 		else
 		{
@@ -136,4 +125,98 @@ ISR (INT2_vect)
 		LCD_clearScreen();
 
 	}
+}
+
+ISR (INT0_vect){
+	cli();
+	action=recvdata();
+	LCD_clearScreen();
+	switch(action)
+	{
+		case 0:
+		LCD_displayString("open gate");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		main_gate(SERVO_DEG_180);
+		_delay_ms(1000);
+		break;
+		
+		case 1:
+		LCD_displayString("close gate");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		main_gate(SERVO_DEG_0);
+		_delay_ms(1000);
+		break;
+		
+		case 2:
+		LCD_displayString("open pool");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		open(_poolPORT,_poolpin);
+		_delay_ms(1000);
+		break;
+		
+		case 3:
+		LCD_displayString("close pool");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		close(_poolPORT,_poolpin);
+		_delay_ms(1000);
+		break;
+		
+		case 4:
+		LCD_displayString("open living light");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		open(_livingPORT,_livingpin);
+		_delay_ms(1000);
+		break;
+		
+		case 5:
+		LCD_displayString("close living light");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		close(_livingPORT,_livingpin);
+		_delay_ms(1000);
+		break;
+		
+		case 6:
+		LCD_displayString("open alarm");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		open(_alarmPORT,_alarmpin);
+		_delay_ms(1000);
+		break;
+		
+		case 7:
+		LCD_displayString("close alarm");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		close(_alarmPORT,_alarmpin);
+		_delay_ms(1000);
+		break;
+		
+		case 8:
+		LCD_displayString("open indoor");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		open(_inDoorPORT,_inDoorpin);
+		_delay_ms(1000);
+		break;
+		
+		case 9:
+		LCD_displayString("close indoor");
+		LCD_goToRowColumn(1,0);
+		LCD_intgerToString(action);
+		close(_inDoorPORT,_inDoorpin);
+		_delay_ms(1000);
+		break;
+		
+		
+		
+		
+		
+	}
+	sei();
 }

@@ -20,7 +20,7 @@ main.d main.o: .././main.c .././headers/lcd.h \
  .././headers/keypad.h .././headers/libs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  .././headers/EEPROM.h .././headers/motors.h .././headers/ADCFunc.h \
- .././headers/ADC.h .././headers/uart.h
+ .././headers/ADC.h .././headers/pins.h .././headers/recv.h
 
 .././headers/lcd.h:
 
@@ -76,4 +76,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././headers/ADC.h:
 
-.././headers/uart.h:
+.././headers/pins.h:
+
+.././headers/recv.h:

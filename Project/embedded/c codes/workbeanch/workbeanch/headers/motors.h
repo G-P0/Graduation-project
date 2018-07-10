@@ -44,11 +44,16 @@ void stepper_motor_init();
 #define SERVO_OUT_PIN PD5
 #define SERVO_OUT_PORT_DIR DDRD
 
-#define  SERVO_DEG_180 250
+#define  SERVO_DEG_180 306
+#define  SERVO_DEG_90  187
+#define	 SERVO_DEG_0   62.5
 
 void Timer1_Fast_PWM_init();
 void Timer1_Fast_PWM_rotate(unsigned short duty_cycle);
 void Timer1_Fast_PWM_stop();
+
+#define main_gate(x) Timer1_Fast_PWM_rotate(x)
+
 
 
 

@@ -150,6 +150,12 @@
     <Compile Include="headers\lcd.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="headers\lcdH.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="headers\lcdH.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="headers\libs.h">
       <SubType>compile</SubType>
     </Compile>
@@ -166,6 +172,18 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="headers\ADCFunc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="headers\pins.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="headers\pins.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="headers\recv.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="headers\recv.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="headers\uart.c">

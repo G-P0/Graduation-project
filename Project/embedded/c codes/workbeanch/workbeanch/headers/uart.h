@@ -22,6 +22,6 @@ void UART_init(uint16_t baud_rate);
 void UART_send_char(char data);
 char UART_receive_char();
 void UART_send_string(char *data);
-char *UART_receive_string();
+void UART_receive_string14(char * data);
 
 #endif /* UART_H_ */

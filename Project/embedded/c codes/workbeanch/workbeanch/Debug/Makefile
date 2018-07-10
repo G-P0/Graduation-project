@@ -43,8 +43,11 @@ C_SRCS +=  \
 ../headers/EEPROM.c \
 ../headers/keypad.c \
 ../headers/lcd.c \
+../headers/lcdH.c \
 ../headers/motors.c \
 ../headers/ADCFunc.c \
+../headers/pins.c \
+../headers/recv.c \
 ../headers/uart.c \
 ../main.c
 
@@ -61,8 +64,11 @@ headers/allam.o \
 headers/EEPROM.o \
 headers/keypad.o \
 headers/lcd.o \
+headers/lcdH.o \
 headers/motors.o \
 headers/ADCFunc.o \
+headers/pins.o \
+headers/recv.o \
 headers/uart.o \
 main.o
 
@@ -72,8 +78,11 @@ headers/allam.o \
 headers/EEPROM.o \
 headers/keypad.o \
 headers/lcd.o \
+headers/lcdH.o \
 headers/motors.o \
 headers/ADCFunc.o \
+headers/pins.o \
+headers/recv.o \
 headers/uart.o \
 main.o
 
@@ -83,8 +92,11 @@ headers/allam.d \
 headers/EEPROM.d \
 headers/keypad.d \
 headers/lcd.d \
+headers/lcdH.d \
 headers/motors.d \
 headers/ADCFunc.d \
+headers/pins.d \
+headers/recv.d \
 headers/uart.d \
 main.d
 
@@ -94,8 +106,11 @@ headers/allam.d \
 headers/EEPROM.d \
 headers/keypad.d \
 headers/lcd.d \
+headers/lcdH.d \
 headers/motors.d \
 headers/ADCFunc.d \
+headers/pins.d \
+headers/recv.d \
 headers/uart.d \
 main.d
 
@@ -113,6 +128,12 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
 
 
 

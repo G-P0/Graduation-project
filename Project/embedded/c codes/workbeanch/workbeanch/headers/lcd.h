@@ -21,8 +21,8 @@
 #endif
 
 /* LCD HW Pins */
-#define RS PA5
-#define RW PA6
+#define RS PA6
+//#define RW PA6
 #define E  PA7
 #define LCD_CTRL_PORT PORTA
 #define LCD_CTRL_PORT_DIR DDRA

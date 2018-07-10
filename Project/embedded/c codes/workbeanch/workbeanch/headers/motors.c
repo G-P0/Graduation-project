@@ -58,13 +58,13 @@ void Timer1_Fast_PWM_init()
 {
 	SET_BIT(SERVO_OUT_PORT_DIR,SERVO_OUT_PIN);
 	TCNT1 = 0;		/* Set timer1 initial count to zero */
-	ICR1 = 2499;	/* Set TOP count for timer1 in ICR1 register */
+	ICR1 = 2499;	/* Set TOP count for timer1 in ICR1 register 2499 for 8Mhz */
 	TCCR1A |= (1<<WGM11) ;
 	/* Configure timer control register TCCR1A
 	* 1. Fast Pwm Mode with the TOP in ICR1 WGM12=01 WGM13=1
 	* 2. Prescaler = F_CPU/64
 	*/
-	TCCR1B |= (1<<WGM12) | (1<<WGM13)  | (1<<CS11);
+	TCCR1B |= (1<<WGM12) | (1<<WGM13) | (1<<CS11)| (1<<CS10); 
 	
 }
 void Timer1_Fast_PWM_rotate(unsigned short duty_cycle)

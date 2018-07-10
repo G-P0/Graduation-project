@@ -10,7 +10,7 @@
 
 void LCD_init(void)
 {
-	LCD_CTRL_PORT_DIR |= (1<<E) | (1<<RS) | (1<<RW); /* Configure the control pins(E,RS,RW) as output pins */
+	LCD_CTRL_PORT_DIR |= (1<<E) | (1<<RS) ; //| (1<<RW); /* Configure the control pins(E,RS,RW) as output pins */
 	
 	#if (DATA_BITS_MODE == 4)
 	#ifdef UPPER_PORT_PINS
@@ -33,7 +33,7 @@ void LCD_init(void)
 void LCD_sendCommand(uint8_t command)
 {
 	CLEAR_BIT(LCD_CTRL_PORT,RS);					/* Instruction Mode RS=0 */
-	CLEAR_BIT(LCD_CTRL_PORT,RW);					/* write data to LCD so RW=0 */
+	//CLEAR_BIT(LCD_CTRL_PORT,RW);					/* write data to LCD so RW=0 */
 	_delay_ms(1);									/* delay for processing Tas = 50ns */
 	SET_BIT(LCD_CTRL_PORT,E);						/* Enable LCD E=1 */
 	_delay_ms(1);									/* delay for processing Tpw - Tdsw = 190ns */
@@ -41,10 +41,12 @@ void LCD_sendCommand(uint8_t command)
 	/* out the highest 4 bits of the required command to the data bus D4 --> D7 */
 	#ifdef UPPER_PORT_PINS							/* if the higher pins in lcd is used */
 	//rest the 
-	LCD_DATA_PORT = ((command & 0xF0));
+	LCD_DATA_PORT &=(!0xF0);
+	LCD_DATA_PORT |= ((command & 0xF0));
 	#else
 	/* out the highest 4 bits of the required command to the data bus D0 --> D3 */
-	LCD_DATA_PORT = ((command >> 4) & 0x0F);
+	LCD_DATA_PORT &=(!0x0F);
+	LCD_DATA_PORT |= ((command >> 4) & 0x0F);
 	#endif
 
 	_delay_ms(1);			/* delay for processing Tdsw = 100ns */
@@ -55,10 +57,12 @@ void LCD_sendCommand(uint8_t command)
 
 	/* out the lowest 4 bits of the required command to the data bus D4 --> D7 */
 	#ifdef UPPER_PORT_PINS
-	LCD_DATA_PORT = (command << 4) & 0xF0;
+	LCD_DATA_PORT &=(!0xF0);
+	LCD_DATA_PORT |= (command << 4) & 0xF0;
 	#else
 	/* out the lowest 4 bits of the required command to the data bus D0 --> D3 */
-	LCD_DATA_PORT = (command & 0x0F);
+	LCD_DATA_PORT &=(!0x0F);
+	LCD_DATA_PORT |= (command & 0x0F);
 	#endif
 	_delay_ms(1); /* delay for processing Tdsw = 100ns */
 	CLEAR_BIT(LCD_CTRL_PORT,E); /* disable LCD E=0 */
@@ -80,16 +84,18 @@ void LCD_sendCommand(uint8_t command)
 void LCD_displayCharacter(uint8_t data)
 {
 	SET_BIT(LCD_CTRL_PORT,RS); /* Data Mode RS=1 */
-	CLEAR_BIT(LCD_CTRL_PORT,RW); /* write data to LCD so RW=0 */
+	//CLEAR_BIT(LCD_CTRL_PORT,RW); /* write data to LCD so RW=0 */
 	_delay_ms(1); /* delay for processing Tas = 50ns */
 	SET_BIT(LCD_CTRL_PORT,E); /* Enable LCD E=1 */
 	_delay_ms(1); /* delay for processing Tpw - Tdws = 190ns */
 	#if (DATA_BITS_MODE == 4)
 	/* out the highest 4 bits of the required command to the data bus D4 --> D7 */
 	#ifdef UPPER_PORT_PINS
-	LCD_DATA_PORT = (data & 0xF0);
+	LCD_DATA_PORT &=(!0x0F);
+	LCD_DATA_PORT |= (data & 0xF0);
 	#else
-	LCD_DATA_PORT = ((data >> 4) & 0x0F);
+	LCD_DATA_PORT &=(!0x0F);
+	LCD_DATA_PORT |= ((data >> 4) & 0x0F);
 	#endif
 
 	_delay_ms(1); /* delay for processing Tdsw = 100ns */
@@ -100,9 +106,11 @@ void LCD_displayCharacter(uint8_t data)
 
 	/* out the lowest 4 bits of the required data to the data bus D4 --> D7 */
 	#ifdef UPPER_PORT_PINS
-	LCD_DATA_PORT = (data << 4) & 0xF0;
+	LCD_DATA_PORT &=(!0xF0);
+	LCD_DATA_PORT |= (data << 4) & 0xF0;
 	#else
-	LCD_DATA_PORT = (data & 0x0F);
+	LCD_DATA_PORT &=(!0xF0);
+	LCD_DATA_PORT |= (data & 0x0F);
 	#endif
 	
 	_delay_ms(1); /* delay for processing Tdsw = 100ns */
